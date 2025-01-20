@@ -105,7 +105,7 @@ const displayCart = (items) => {
                 <button class="details-btn">
                 <a href="mangoDetails.html?mangoId=${item.mango.id}">Details</a>
                 </button>
-                <button class="buy-now-btn" onclick="buyNow('${item.mango.id}', ${item.mango.price}, ${item.mango.quantity})">Buy Now</button>
+                <button class="buy-now-btn" onclick="buyNowIntoCart('${item.mango.id}', ${item.mango.price}, ${item.mango.quantity}, '${item.id}')">Buy Now</button>
                 <button class="delete-btn" onclick="deleteCartItem('${item.id}')">Delete</button>
             </div>
         </div>
@@ -115,6 +115,54 @@ const displayCart = (items) => {
     });
 };
 
+function buyNowIntoCart(mangoId, price, maxQuantity, cartItemId) {
+    const token = localStorage.getItem("token");
+    const user_id = localStorage.getItem("user_id");
+    const quantity = document.getElementById("quantity").value;
+
+    if (!token) {
+        alert("Please Login first.");
+        return;
+    }
+
+    if (quantity < 1 || quantity > maxQuantity) {
+        alert(`Please enter a valid quantity (1-${maxQuantity}).`);
+        return;
+    }
+
+    const orderData = {
+        quantity: quantity,
+        buying_status: "Pending",
+        user: user_id,
+        product: mangoId,
+    };
+
+    // Step 1: Place the Order
+    fetch("http://127.0.0.1:8000/add_to_cart/orders-view/", {
+        method: "POST",
+        headers: {
+            Authorization: `Token ${token}`,
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(orderData),
+    })
+        .then((res) => {
+            if (!res.ok) {
+                throw new Error("Failed to place order.");
+            }
+            return res.json();
+        })
+        .then((orderResponse) => {
+            console.log("Order placed successfully:", orderResponse);
+            alert("Successfully bought the product!");
+
+            // Step 2: Remove the Item from Cart
+            deleteCartItem(cartItemId);
+        })
+        .catch((error) => {
+            console.error("Error during purchase or cart update:", error);
+        });
+}
 
 
 function deleteCartItem(cartItemId) {

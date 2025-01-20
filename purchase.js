@@ -25,7 +25,7 @@ const buyNow = (mangoId, price, maxQuantity) => {
         product: mangoId,
        
     };
-    // console.log(orderData)
+    console.log("Order Data",orderData)
     fetch("http://127.0.0.1:8000/add_to_cart/orders-view/",{
         method: "POST",
         headers: {
