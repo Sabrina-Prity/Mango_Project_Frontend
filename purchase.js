@@ -93,11 +93,22 @@ const displayOrderHistory = () => {
                         <td>${order.product.name}</td>
                         <td>${order.quantity}</td>
                         <td>$${total_price.toFixed(2)}</td>
-                        <td>${order.buying_status}</td>
+                        <td class="status-cell">${order.buying_status}</td>
                         <td>
                             <button class="delete-button" onclick="deleteOrder(${order.id})">Delete</button>
                         </td>
                     `;
+                    
+
+                    const statusCell = orderRow.querySelector(".status-cell");
+                    if (order.buying_status === "Pending") {
+                        statusCell.classList.add("status-pending");
+                    } else if (order.buying_status === "Complete") {
+                        statusCell.classList.add("status-complete");
+                    }
+
+
+
                     tbody.appendChild(orderRow);
                 });
 
