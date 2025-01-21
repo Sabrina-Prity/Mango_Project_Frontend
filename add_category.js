@@ -15,6 +15,7 @@ const handleAddCategory = (event) => {
             if (data.id) {
                 console.log("Category id",data.id)
                 alert("Category added successfully!");
+                document.getElementById("name").value = "";
                 fetchCategories(); 
             } else {
                 document.getElementById("error").innerText = "Failed to add category!";
