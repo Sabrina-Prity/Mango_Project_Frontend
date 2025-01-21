@@ -77,7 +77,7 @@ const displayCart = (items) => {
         parent.innerHTML += `
         <img src="Images/cart_empty.jpg" alt="Empty Cart" class="empty-cart">
         <p>Your cart is empty!</p>
-        `;;
+        `;
        
     }
     else{
