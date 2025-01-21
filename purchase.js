@@ -103,7 +103,7 @@ const displayOrderHistory = () => {
                     const statusCell = orderRow.querySelector(".status-cell");
                     if (order.buying_status === "Pending") {
                         statusCell.classList.add("status-pending");
-                    } else if (order.buying_status === "Complete") {
+                    } else if (order.buying_status === "Completed") {
                         statusCell.classList.add("status-complete");
                     }
 
