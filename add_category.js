@@ -2,7 +2,7 @@ const handleAddCategory = (event) => {
     event.preventDefault();
     const name = document.getElementById("name").value;
     console.log(name)
-    fetch('http://127.0.0.1:8000/category/list/', { 
+    fetch('https://mango-project-six.vercel.app/category/list/', { 
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -25,7 +25,7 @@ const handleAddCategory = (event) => {
 
 
 const fetchCategories = () => {
-    fetch('http://127.0.0.1:8000/category/list/', {
+    fetch('https://mango-project-six.vercel.app/category/list/', {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
@@ -57,7 +57,7 @@ const fetchCategories = () => {
 const deleteCategory = (id) => {
     if (!confirm("Are you sure you want to delete this category?")) return;
 
-    fetch(`http://127.0.0.1:8000/category/list/${id}/`, {
+    fetch(`https://mango-project-six.vercel.app/list/${id}/`, {
         method: 'DELETE',
         headers: {
             'Content-Type': 'application/json',

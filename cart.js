@@ -22,7 +22,7 @@ const addToCart = (mangoId) => {
 
     console.log("Cart Data", data)
     const token = localStorage.getItem("token");
-    fetch("http://127.0.0.1:8000/add_to_cart/product_get/", {
+    fetch("https://mango-project-six.vercel.app/add_to_cart/product_get/", {
         method: "POST",
         headers: {
             Authorization: `Token ${token}`,
@@ -50,7 +50,7 @@ const loadCartProduct = () => {
     const token = localStorage.getItem("token");
 
     
-    fetch(`http://127.0.0.1:8000/add_to_cart/cart_products/${cartId}/`,
+    fetch(`https://mango-project-six.vercel.app/add_to_cart/cart_products/${cartId}/`,
         {
             method: "GET",
             headers: {
@@ -138,7 +138,7 @@ function buyNowIntoCart(mangoId, price, maxQuantity, cartItemId) {
     };
 
     // Step 1: Place the Order
-    fetch("http://127.0.0.1:8000/add_to_cart/orders-view/", {
+    fetch("https://mango-project-six.vercel.app/add_to_cart/orders-view/", {
         method: "POST",
         headers: {
             Authorization: `Token ${token}`,
@@ -166,7 +166,7 @@ function buyNowIntoCart(mangoId, price, maxQuantity, cartItemId) {
 
 
 function deleteCartItem(cartItemId) {
-    const url = `http://127.0.0.1:8000/add_to_cart/update-cart-item/${cartItemId}/`;
+    const url = `https://mango-project-six.vercel.app/add_to_cart/update-cart-item/${cartItemId}/`;
     const token = localStorage.getItem("token");
     fetch(url, {
         method: 'DELETE',

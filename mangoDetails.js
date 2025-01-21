@@ -4,7 +4,7 @@ const loadcartId = () => {
         alert("Please login");
         return;
     }
-    fetch(`http://127.0.0.1:8000/add_to_cart/cart_details/${localStorage.getItem("user_id")}/`,{
+    fetch(`https://mango-project-six.vercel.app/add_to_cart/cart_details/${localStorage.getItem("user_id")}/`,{
         headers: {
             'Authorization': `Token ${token}`,
             'Content-Type': 'application/json',
@@ -59,7 +59,7 @@ const displayMangosDetails = (mango) => {
 const getparams = () => {
     const param = new URLSearchParams(window.location.search).get("mangoId");
     console.log("Cart Mango Id", param);
-    fetch(`http://127.0.0.1:8000/product/mango/${param}`)
+    fetch(`https://mango-project-six.vercel.app/product/mango/${param}`)
         .then((res) => res.json())
         .then((data) => {
             console.log("Cart Details Mango", data);
@@ -70,7 +70,7 @@ const getparams = () => {
 getparams();
 
 const displayComments = (mangoId) => {
-    fetch(`http://127.0.0.1:8000/product/comment/comments_by_mango/?mango_id=${mangoId}`)
+    fetch(`https://mango-project-six.vercel.app/product/comment/comments_by_mango/?mango_id=${mangoId}`)
         .then((res) => res.json())
         .then((data) => {
             const commentsList = document.getElementById("comments-list");
@@ -119,7 +119,7 @@ const postComment = () => {
     };
 
     console.log(commentData);
-    fetch('http://127.0.0.1:8000/product/comment/', {
+    fetch('https://mango-project-six.vercel.app/product/comment/', {
         method: 'POST',
         headers: {
             'Authorization': `Token ${token}`,

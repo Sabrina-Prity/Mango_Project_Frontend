@@ -1,7 +1,7 @@
 
 const fetchOrders = () => {
     const token = localStorage.getItem("token");
-    fetch("http://127.0.0.1:8000/add_to_cart/admin-order/", { 
+    fetch("https://mango-project-six.vercel.app/add_to_cart/admin-order/", { 
         method: "GET",
         headers: {
             Authorization: `Token ${token}`,
@@ -48,7 +48,7 @@ const displayOrders = (orders) => {
 
 const updateStatus = (orderId, status) => {
     const token = localStorage.getItem("token");
-    fetch(`http://127.0.0.1:8000/add_to_cart/admin-order-updated/${orderId}/`, { 
+    fetch(`https://mango-project-six.vercel.app/add_to_cart/admin-order-updated/${orderId}/`, { 
         method: "PUT",
         headers: {
             Authorization: `Token ${token}`,
@@ -91,7 +91,7 @@ const deleteOrder = (orderId) => {
     console.log("Order Id",orderId);
     const token = localStorage.getItem("token");
     if (confirm("Are you sure you want to delete this order?")) {
-        fetch(`http://127.0.0.1:8000/add_to_cart/admin-order-updated/${orderId}/`, {  
+        fetch(`https://mango-project-six.vercel.app/add_to_cart/admin-order-updated/${orderId}/`, {  
             method: "DELETE",
             headers: {
                 Authorization: `Token ${token}`,

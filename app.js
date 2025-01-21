@@ -1,5 +1,5 @@
 const loadCategory = () => {
-    fetch("http://127.0.0.1:8000/category/list/")
+    fetch("https://mango-project-six.vercel.app/category/list/")
         .then((res) => res.json())
         // .then((data) => console.log(data))
         .then((data) => displayCategory(data))
@@ -22,7 +22,7 @@ const displayCategory = ((data)=>{
  const loadMangos = (search) => 
     {
     document.getElementById("card").innerHTML = "";
-    fetch(`http://127.0.0.1:8000/product/mango/?search=${search ? search : ""}`) 
+    fetch(`https://mango-project-six.vercel.app/product/mango/?search=${search ? search : ""}`) 
         .then((res) => res.json())
         // .then((data) => console.log(data))
         .then((data) =>{
@@ -91,7 +91,7 @@ const createCart=()=>{
         user : localStorage.getItem("user_id"),
     }
     console.log(object)
-    fetch("http://127.0.0.1:8000/add_to_cart/cart_create/",{
+    fetch("https://mango-project-six.vercel.app/add_to_cart/cart_create/",{
         method : "POST",
         headers : {
             Authorization: `Token ${token}`,

@@ -13,11 +13,18 @@ fetch("nav_bar.html")
     if (token) {
       userContainer.innerHTML = `
         <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.html">Home</a></li>
-        <li class="nav-item" id="profile-item"><a class="nav-link" href="profile.html">Profile</a></li>
         <li class="nav-item" id="logout-item"><a href="#" onclick="handlelogOut()" class="nav-link">Logout</a></li>
-        <li class="nav-item btn-cart" id="logout-item"><a href="cart.html" class="nav-link">Cart <i class="fa-solid fa-cart-shopping text-white"></i></a></li>
       `;
-      
+
+      // Show 'Profile' and 'Cart' only if the user is not an admin
+      if (!isAdmin) {
+        userContainer.innerHTML += `
+          <li class="nav-item" id="profile-item"><a class="nav-link" href="profile.html">Profile</a></li>
+          <li class="nav-item btn-cart" id="cart-item"><a href="cart.html" class="nav-link">Cart <i class="fa-solid fa-cart-shopping text-white"></i></a></li>
+        `;
+      }
+
+      // Add admin-specific links if the user is an admin
       if (isAdmin) {
         userContainer.innerHTML += `
           <li class="nav-item"><a class="nav-link" href="add_Mango.html">Product</a></li>

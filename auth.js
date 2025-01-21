@@ -56,7 +56,7 @@ const handleRegistration = (event) => {
                     image: imageUrl, 
                 };
 
-                fetch("http://127.0.0.1:8000/customer/register/", {
+                fetch("https://mango-project-six.vercel.app/customer/register/", {
                     method: "POST",
                     headers: { 
                         "Content-Type": "application/json" },
@@ -104,7 +104,7 @@ const handleLogin = (event) => {
     console.log(username, password);
     localStorage.setItem("username", username);
     if ((username, password)) {
-        fetch("http://127.0.0.1:8000/customer/login/", {
+        fetch("https://mango-project-six.vercel.app/customer/login/", {
             method: "POST",
             headers: { 
                 "content-type": "application/json" },
@@ -133,7 +133,7 @@ const handleLogin = (event) => {
 const handlelogOut = () => {
     const token = localStorage.getItem("token");
 
-    fetch("http://127.0.0.1:8000/customer/logout", {
+    fetch("https://mango-project-six.vercel.app/customer/logout", {
         method: "GET",
         headers: {
             Authorization: `Token ${token}`,

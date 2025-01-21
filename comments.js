@@ -1,5 +1,5 @@
 const displayComments = () => {
-    fetch("http://127.0.0.1:8000/product/comment/")
+    fetch("https://mango-project-six.vercel.app/product/comment/")
         .then((res) => res.json())
         .then((data) => {
             const commentsList = document.getElementById("comments-list");
@@ -41,7 +41,7 @@ const deleteComment = (commentId) => {
         return;
     }
 
-    fetch(`http://127.0.0.1:8000/product/comment/${commentId}/`, {
+    fetch(`https://mango-project-six.vercel.app/product/comment/${commentId}/`, {
         method: 'DELETE',
         headers: {
             'Authorization': `Token ${token}`,

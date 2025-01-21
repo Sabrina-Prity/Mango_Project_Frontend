@@ -5,7 +5,7 @@ const fetchCategory = () => {
     //     return;
     // }
     console.log("Data")
-    fetch('http://127.0.0.1:8000/category/list/', {
+    fetch('https://mango-project-six.vercel.app/category/list/', {
         method: 'GET',
         headers: {
             // Authorization: `Token ${token}`, 
@@ -89,7 +89,7 @@ const handleAdd_Mango = (event) => {
 
             console.log("Product Data:", productData);
             const token = localStorage.getItem("token");
-            fetch("http://127.0.0.1:8000/product/mango/", {
+            fetch("https://mango-project-six.vercel.app/product/mango/", {
                 method: "POST",
                 headers: {
                     Authorization: `Token ${token}`,
@@ -133,7 +133,7 @@ const handleAdd_Mango = (event) => {
 
 const fetchMango = () => {
     const token = localStorage.getItem("token");
-    fetch('http://127.0.0.1:8000/product/mango/', {
+    fetch('https://mango-project-six.vercel.app/product/mango/', {
         method: 'GET',
         headers: {
             Authorization: `Token ${token}`,
@@ -176,7 +176,7 @@ const deleteMango = (id) => {
     const token = localStorage.getItem("token");
     // if (!confirm("Are you sure you want to delete this mango?")) return;
 
-    fetch(`http://127.0.0.1:8000/product/mango/${id}/`, {
+    fetch(`https://mango-project-six.vercel.app/product/mango/${id}/`, {
         method: 'DELETE',
         headers: {
             Authorization: `Token ${token}`,

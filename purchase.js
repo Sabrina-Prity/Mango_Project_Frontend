@@ -26,7 +26,7 @@ const buyNow = (mangoId, price, maxQuantity) => {
        
     };
     console.log("Order Data",orderData)
-    fetch("http://127.0.0.1:8000/add_to_cart/orders-view/",{
+    fetch("https://mango-project-six.vercel.app/add_to_cart/orders-view/",{
         method: "POST",
         headers: {
         Authorization: `Token ${token}`,
@@ -49,7 +49,7 @@ const displayOrderHistory = () => {
     const token = localStorage.getItem("token");
     console.log("Token", token);
     const id = localStorage.getItem("user_id");
-    fetch(`http://127.0.0.1:8000/add_to_cart/orders-view/?user_id=${id}`, {
+    fetch(`https://mango-project-six.vercel.app/add_to_cart/orders-view/?user_id=${id}`, {
         method: "GET",
         headers: {
             Authorization: `Token ${token}`,
@@ -114,7 +114,7 @@ const deleteOrder = (orderId) => {
     const token = localStorage.getItem("token");
     const user_id = localStorage.getItem("user_id");
 
-    fetch(`http://127.0.0.1:8000/add_to_cart/specific-order/${orderId}/?user_id=${user_id}`, {
+    fetch(`https://mango-project-six.vercel.app/add_to_cart/specific-order/${orderId}/?user_id=${user_id}`, {
         method: "DELETE",
         headers: {
             Authorization: `Token ${token}`,
