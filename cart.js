@@ -75,7 +75,8 @@ const displayCart = (items) => {
 
     if (!items || items.length === 0) {
         parent.innerHTML += `
-            <img src="Images/cart_empty.jpg" alt="Empty Cart" style="width:200px; height:auto; margin-top:10px;">
+        <img src="Images/cart_empty.jpg" alt="Empty Cart" class="empty-cart">
+        <p>Your cart is empty!</p>
         `;;
        
     }
