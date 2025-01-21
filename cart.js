@@ -74,7 +74,10 @@ const displayCart = (items) => {
     parent.innerHTML = `<h2>Your Cart</h2>`;
 
     if (!items || items.length === 0) {
-        parent.innerHTML += "<p>Your cart is empty!</p>";
+        parent.innerHTML += `
+            <p>Your cart is empty!</p>
+            <img src="Images/cart_empty.jpg" alt="Empty Cart" style="width:200px; height:auto; margin-top:10px;">
+        `;;
        
     }
     else{
