@@ -37,7 +37,7 @@ const fetchCategories = () => {
             container.innerHTML = "<h2>All Categories</h2>";
 
             if (categories.length === 0) {
-                container.innerHTML += "<p>No categories found!</p>";
+                container.innerHTML += "<p style='font-size:25px; color:gray; text-align:center; margin-top:20px;'>No categories found!</p>";
             } else {
                 categories.forEach((category) => {
                     const div = document.createElement("div");
@@ -55,9 +55,9 @@ const fetchCategories = () => {
 
 
 const deleteCategory = (id) => {
-    if (!confirm("Are you sure you want to delete this category?")) return;
+    // if (!confirm("Are you sure you want to delete this category?")) return;
 
-    fetch(`https://mango-project-six.vercel.app/list/${id}/`, {
+    fetch(`https://mango-project-six.vercel.app/category/list/${id}/`, {
         method: 'DELETE',
         headers: {
             'Content-Type': 'application/json',

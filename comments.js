@@ -6,7 +6,7 @@ const displayComments = () => {
             commentsList.innerHTML = '';
 
             if (data.length === 0) {
-                commentsList.innerHTML += "<p>No comments found!</p>"; 
+                commentsList.innerHTML += "<p style='font-size:25px; color:gray; text-align:center; margin-top:20px;'>No comments found!</p>"; 
             } 
             else {
                 data.forEach((comment) => {

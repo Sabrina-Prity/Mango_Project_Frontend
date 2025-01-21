@@ -146,7 +146,7 @@ const fetchMango = () => {
             container.innerHTML = "<h2>All Mango Items</h2>";
 
             if (mangos.length === 0) {
-                container.innerHTML += "<p>No mango found!</p>";
+                container.innerHTML += "<p style='font-size:25px; color:gray; text-align:center; margin-top:20px;'>No mango found!</p>";
             } else {
                 mangos.forEach((mango) => {
                     const div = document.createElement("div");

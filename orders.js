@@ -20,30 +20,41 @@ const fetchOrders = () => {
 
 
 const displayOrders = (orders) => {
-    console.log("Orders", orders)
+    console.log("Orders", orders);
     const ordersList = document.getElementById("orders-list");
-    ordersList.innerHTML = ""; // Clear the current list
-    orders.forEach(order => {
-        console.log("Order Detail",order)
-        const orderDiv = document.createElement("div");
-        orderDiv.classList.add("order-item");
+    ordersList.innerHTML = "";
 
-        const price = order.product.price;
-        const quantity = order.quantity;
-        const total_price = price * quantity;
-        // orderDiv.id = `order-${order.id}`;
-        orderDiv.innerHTML = `
-            <h3>Order ID: ${order.id}</h3>
-            <p><strong>Product:</strong> ${order.product.name}</p>
-            <p><strong>Quantity:</strong> ${order.quantity}</p>
-            <p><strong>Total Price:</strong> $${total_price}</p>
-            <p><strong>Status:</strong> ${order.buying_status}</p>
-            <button class="complete" onclick="updateStatus(${order.id}, 'Completed')">Mark as Completed</button>
-            <button class="delete" onclick="deleteOrder(${order.id})">Delete Order</button>
-        `;
-        ordersList.appendChild(orderDiv);
-    });
+    if (!orders || orders.length === 0) {
+        ordersList.innerHTML = "<p style='font-size:25px; color:gray; text-align:center; margin-top:20px;'>No orders found.</p>";
+
+    } else {
+        const ordersCount = document.createElement("p");
+        ordersCount.innerHTML = `<strong>Total Orders:</strong> ${orders.length}`;
+        ordersList.appendChild(ordersCount);
+
+        orders.forEach(order => {
+            console.log("Order Detail", order);
+            const orderDiv = document.createElement("div");
+            orderDiv.classList.add("order-item");
+
+            const price = order.product.price;
+            const quantity = order.quantity;
+            const total_price = price * quantity;
+
+            orderDiv.innerHTML = `
+                <h3>Order ID: ${order.id}</h3>
+                <p><strong>Product:</strong> ${order.product.name}</p>
+                <p><strong>Quantity:</strong> ${order.quantity}</p>
+                <p><strong>Total Price:</strong> $${total_price}</p>
+                <p><strong>Status:</strong> ${order.buying_status}</p>
+                <button class="complete" onclick="updateStatus(${order.id}, 'Completed')">Mark as Completed</button>
+                <button class="delete" onclick="deleteOrder(${order.id})">Delete Order</button>
+            `;
+            ordersList.appendChild(orderDiv);
+        });
+    }
 };
+
 
 
 const updateStatus = (orderId, status) => {
