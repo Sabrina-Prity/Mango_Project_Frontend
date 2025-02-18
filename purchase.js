@@ -99,7 +99,7 @@ const displayOrderHistory = () => {
                         <td class="payment-status status-complete">${order.payment_status}</td>
                         <td> 
                             <button class="pay-button " 
-                                onclick="SSLpayment(${order.id}, total_price, quantity)"
+                                onclick="SSLpayment(${order.id}, ${total_price}, ${quantity})"
                                 ${order.payment_status === "Completed" ? "disabled style='background:gray; cursor:not-allowed;'" : ""}
                                 >
                                 ${order.payment_status === "Completed" ? "Paid" : "Pay Now"}
