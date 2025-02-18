@@ -89,6 +89,7 @@ const displayOrderHistory = () => {
                     const price = order.product.price;
                     const quantity = order.quantity;
                     const total_price = price * quantity;
+                    const payment_status = 'Pending';
                     const orderRow = document.createElement("tr");
                     orderRow.innerHTML = `
                         <td>${order.id}</td>
@@ -96,7 +97,7 @@ const displayOrderHistory = () => {
                         <td>${order.quantity}</td>
                         <td>$${total_price.toFixed(2)}</td>
                         <td class="status-cell">${order.buying_status}</td>
-                        <td class="payment-status status-complete">${order.payment_status}</td>
+                        <td class="payment-status status-complete">${payment_status}</td>
                         <td> 
                             <button class="pay-button " 
                                 onclick="SSLpayment(${order.id}, ${total_price}, ${quantity})"
@@ -148,7 +149,7 @@ function SSLpayment(orderId, totalPrice, length) {
         return;
     }
 
-    fetch("https://sweet-haven-nu.vercel.app/payment/pay/", {
+    fetch("https://mango-project-six.vercel.app/payment/pay/", {
         method: "POST",
         headers: {
             "Authorization": `Token ${token}`,  
