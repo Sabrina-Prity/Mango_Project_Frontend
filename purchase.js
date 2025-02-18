@@ -75,7 +75,9 @@ const displayOrderHistory = () => {
                         <th>Product</th>
                         <th>Quantity</th>
                         <th>Total Price</th>
-                        <th>Status</th>
+                        <th>Order Status</th>
+                        <th>Payment Status</th>
+                        <th>Complete Your Payment</th>
                         <th>Action</th>
                     </tr>
                 `;
@@ -94,18 +96,30 @@ const displayOrderHistory = () => {
                         <td>${order.quantity}</td>
                         <td>$${total_price.toFixed(2)}</td>
                         <td class="status-cell">${order.buying_status}</td>
+                        <td class="payment-status status-complete">${order.payment_status}</td>
+                        <td> 
+                            <button class="pay-button " 
+                                onclick="SSLpayment(${order.id}, total_price, ${order.order_items.length})"
+                                ${order.payment_status === "Completed" ? "disabled style='background:gray; cursor:not-allowed;'" : ""}
+                                >
+                                ${order.payment_status === "Completed" ? "Paid" : "Pay Now"}
+                            </button>
+                        </td> 
                         <td>
                             <button class="delete-button" onclick="deleteOrder(${order.id})">Delete</button>
                         </td>
                     `;
                     
 
-                    const statusCell = orderRow.querySelector(".status-cell");
-                    if (order.buying_status === "Pending") {
-                        statusCell.classList.add("status-pending");
-                    } else if (order.buying_status === "Completed") {
-                        statusCell.classList.add("status-complete");
-                    }
+                    // Update the status cell styles based on the order status
+                const statusCell = orderRow.querySelector(".status-cell");
+                if (order.buying_status === "Pending") {
+                    statusCell.classList.add("status-pending");
+                } else if (order.buying_status === "Completed") {
+                    statusCell.classList.add("status-complete");
+                } else if (order.buying_status === "Canceled") {
+                    statusCell.classList.add("status-canceled");
+                }
 
 
 
@@ -120,6 +134,52 @@ const displayOrderHistory = () => {
             console.error("Error fetching orders:", error);
         });
 };
+
+
+function SSLpayment(orderId, totalPrice, length) {  
+    console.log("OrderId:", orderId, "Total Price:", totalPrice);
+    console.log("Length", length);
+
+    const token = localStorage.getItem("token");
+    const user_id = localStorage.getItem("user_id");
+    console.log("user_id",user_id)
+    if (!token) {
+        alert("You are not logged in! Please log in first.");
+        return;
+    }
+
+    fetch("https://sweet-haven-nu.vercel.app/payment/pay/", {
+        method: "POST",
+        headers: {
+            "Authorization": `Token ${token}`,  
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            order_id: orderId,
+            total_amount: totalPrice,  
+            total_item: length,
+            user_id : user_id,  
+        }),
+    })
+    .then(response => response.json())
+    .then(result => {
+        console.log("Request", result)
+        if (result.status === "success") {
+            console.log("success",result.status)
+            window.location.href = result.payment_url;  
+        } else {
+            alert("Payment initiation failed: " + result.message);
+        }
+    })
+    .catch(error => {
+        console.error("Error initiating payment:", error);
+        alert("Something went wrong. Please check your connection.");
+    });
+}
+
+
+
+
 
 const deleteOrder = (orderId) => {
     const token = localStorage.getItem("token");
