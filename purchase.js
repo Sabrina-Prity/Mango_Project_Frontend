@@ -149,7 +149,7 @@ function SSLpayment(orderId, totalPrice, length) {
         return;
     }
 
-    fetch("http://127.0.0.1:8000/payment/pay/", {
+    fetch("https://mango-project-six.vercel.app/payment/pay/", {
         method: "POST",
         headers: {
             "Authorization": `Token ${token}`,  
