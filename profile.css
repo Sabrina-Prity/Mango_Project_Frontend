@@ -87,7 +87,15 @@ body {
     font-size: 1.2rem;
     color: #666;
 }
-
+.pay-button {
+  background: rgb(70, 150, 179);
+  color: white;
+  padding: 8px 12px;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  
+}
 .status-pending {
   color: rgb(208, 88, 33);
   font-weight: bold;
