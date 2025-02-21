@@ -60,7 +60,12 @@ const getparams = () => {
     const param = new URLSearchParams(window.location.search).get("mangoId");
     console.log("Cart Mango Id", param);
     const token = localStorage.getItem("token");
-    fetch(`https://mango-project-six.vercel.app/product/mango/${param}/`)
+    fetch(`https://mango-project-six.vercel.app/product/mango/${param}/`, {
+        headers: {
+            'Authorization': `Token ${token}`,
+            'Content-Type': 'application/json',
+        }
+    })
         .then((res) => res.json())
         .then((data) => {
             console.log("Cart Details Mango", data);
