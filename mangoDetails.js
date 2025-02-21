@@ -77,7 +77,7 @@ getparams();
 
 const displayComments = (mangoId) => {
     const token = localStorage.getItem("token");
-    fetch(`https://mango-project-six.vercel.app/product/comment/comments_by_mango/?mango_id=${mangoId}/`,{
+    fetch(`https://mango-project-six.vercel.app/product/comment/${mangoId}/`,{
         headers: {
             'Authorization': `Token ${token}`,
             'Content-Type': 'application/json',
