@@ -21,6 +21,7 @@ const buyNow = (mangoId, price, maxQuantity) => {
     const orderData = {
         quantity: quantity,
         buying_status: "Pending",
+        payment_status: "Pending",
         user : user_id,
         product: mangoId,
        
