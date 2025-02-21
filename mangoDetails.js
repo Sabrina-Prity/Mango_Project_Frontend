@@ -59,7 +59,13 @@ const displayMangosDetails = (mango) => {
 const getparams = () => {
     const param = new URLSearchParams(window.location.search).get("mangoId");
     console.log("Cart Mango Id", param);
-    fetch(`https://mango-project-six.vercel.app/product/mango/${param}`)
+    const token = localStorage.getItem("token");
+    fetch(`https://mango-project-six.vercel.app/product/mango/${param}/`,{
+        headers: {
+            'Authorization': `Token ${token}`,
+            'Content-Type': 'application/json',
+        }
+})
         .then((res) => res.json())
         .then((data) => {
             console.log("Cart Details Mango", data);
@@ -70,7 +76,13 @@ const getparams = () => {
 getparams();
 
 const displayComments = (mangoId) => {
-    fetch(`https://mango-project-six.vercel.app/product/comment/comments_by_mango/?mango_id=${mangoId}`)
+    const token = localStorage.getItem("token");
+    fetch(`https://mango-project-six.vercel.app/product/comment/comments_by_mango/?mango_id=${mangoId}/`,{
+        headers: {
+            'Authorization': `Token ${token}`,
+            'Content-Type': 'application/json',
+        }
+})
         .then((res) => res.json())
         .then((data) => {
             const commentsList = document.getElementById("comments-list");
