@@ -46,7 +46,8 @@ const displayOrders = (orders) => {
                 <p><strong>Product:</strong> ${order.product.name}</p>
                 <p><strong>Quantity:</strong> ${order.quantity}</p>
                 <p><strong>Total Price:</strong> $${total_price}</p>
-                <p><strong>Status:</strong> ${order.buying_status}</p>
+                <p><strong>Buying Status:</strong> ${order.buying_status}</p>
+                <p><strong>Payment Status:</strong> ${order.payment_status}</p>
                 <button class="complete" onclick="updateStatus(${order.id}, 'Completed')">Mark as Completed</button>
                 <button class="delete" onclick="deleteOrder(${order.id})">Delete Order</button>
             `;
