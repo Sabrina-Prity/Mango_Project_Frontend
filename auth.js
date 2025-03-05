@@ -99,35 +99,44 @@ const getValue = (id) => {
 
 const handleLogin = (event) => {
     event.preventDefault();
-    const username = getValue("login-username");
-    const password = getValue("login-password");
+    
+    const username = document.getElementById("login-username").value;
+    const password = document.getElementById("login-password").value;
+
     console.log(username, password);
     localStorage.setItem("username", username);
-    if ((username, password)) {
+
+    if (username && password) {
         fetch("https://mango-project-six.vercel.app/customer/login/", {
             method: "POST",
             headers: { 
-                "content-type": "application/json" },
+                "Content-Type": "application/json"
+            },
             body: JSON.stringify({ username, password }),
         })
-            .then((res) => res.json())
-            .then((data) => {
-                console.log(data);
+        .then((res) => res.json())
+        .then((data) => {
+            console.log(data);
 
-                if (data.token && data.user_id) {
-                    alert("Login Successful");
-                    localStorage.setItem("token", data.token);
-                    localStorage.setItem("user_id", data.user_id);
-                    localStorage.setItem("is_admin", data.is_admin);
-                    window.location.href = "index.html";
-                }
-            })
-            .catch((error) => {
-                console.error("Error during logout:", error);
-                alert("Login failed. Please try again.");
-            });
+            if (data.token && data.user_id) {
+                alert("Login Successful");
+                localStorage.setItem("token", data.token);
+                localStorage.setItem("user_id", data.user_id);
+                localStorage.setItem("is_admin", data.is_admin);
+                window.location.href = "index.html";
+            } else {
+                alert("Invalid username or password.");
+            }
+        })
+        .catch((error) => {
+            console.error("Error during login:", error);
+            alert("Login failed. Please try again.");
+        });
+    } else {
+        alert("Please enter both username and password.");
     }
 };
+
 
 
 const handlelogOut = () => {

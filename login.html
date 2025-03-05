@@ -37,36 +37,28 @@
 
 
     <main>
-        <div class="login-container">
-            <!-- Left Section -->
-            <div class="col-md-6">
-                <h1 class="title mt-5">Please Login</h1>
-                <form action="">
-                    <input
-                        value="rahim"
-                        id="login-username"
-                        type="text"
-                        class="input"
-                        placeholder="username"
-                        required
-                    />
-                    <input
-                        id="login-password"
-                        type="password"
-                        class="input"
-                        placeholder="password"
-                        required
-                        value="abcd1234%"
-                    />
-                    <button onclick="handleLogin(event)" class="reg-submit">Login</button>
-                </form>
-            </div>
-        
-            <!-- Right Section -->
-            <div class="col-md-6">
-                <img class="w-100" src="Images/login.png" alt="Login Illustration" />
-            </div>
+      <div class="login-container">
+        <!-- Left Section -->
+        <div class="col-md-6">
+            <img class="login-img" src="Images/login.png" alt="Login Illustration">
         </div>
+        
+        <!-- Right Section -->
+        <div class="col-md-6">
+            <h1 class="title mt-5">Login to your Account</h1>
+            <h3 class="demo-cre">Demo Credentials:</h3>
+            <div class="credentials">
+                <button onclick="fillCredentials('user')">User Credential</button>
+                <button onclick="fillCredentials('admin')">Admin Credential</button>
+            </div>
+            
+            <form onsubmit="handleLogin(event)">
+                <input id="login-username" type="text" class="input" placeholder="Username" required>
+                <input id="login-password" type="password" class="input" placeholder="Password" required>
+                <button type="submit" class="reg-submit">Login</button>
+            </form>
+        </div>
+    </div>
         
     </main>
 
@@ -127,6 +119,22 @@
     </footer>
 
     <!-- Script file cdn -->
+    <script>
+      function fillCredentials(type) {
+          if (type === 'user') {
+              document.getElementById('login-username').value = 'karim70';
+              document.getElementById('login-password').value = 'naim123@';
+          } else if (type === 'admin') {
+              document.getElementById('login-username').value = 'admin';
+              document.getElementById('login-password').value = 'sab123@';
+          }
+      }
+
+      function handleLogin(event) {
+          event.preventDefault();
+          alert('Login functionality will be implemented here.');
+      }
+  </script>
     <script src="app.js"></script>
     <script src="auth.js"></script>
     <script src="nav_bar.js"></script>
