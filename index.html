@@ -74,10 +74,10 @@
 
     <!-- Welcome Container -->
     <div class="welcome-container d-flex">
-      <div class="welcome-img col-md-6">
+      <div class="welcome-img col-md-4">
         <img src="Images/logo-2.png" alt>
       </div>
-      <div class="welcome-text col-md-6">
+      <div class="welcome-text col-md-8">
         <h1>Welcome to Sweet Haven!</h1>
         <p>
           Welcome to Sweet Haven, your ultimate destination for experiencing the
@@ -105,37 +105,22 @@
       </div>
 
       <div class="main-container container">
-        <!-- All Category -->
-        <div class="category-container col-md-2">
-          <div class="dropdown">
-            <button
-              class="btn btn-secondary dropdown-toggle"
-              type="button"
-     
-              id="dropdownMenuButton2"
-              data-bs-toggle="dropdown"
-              aria-expanded="false">
-              All Category
-            </button>
-            <ul
-              id="category"
-              class="dropdown-menu dropdown-menu-dark"
-              aria-labelledby="dropdownMenuButton2"></ul>
-          </div>
-
+        <!-- Category Section -->
+        <div class="category-section">
+            <ul id="category" class="category-list"></ul>
         </div>
-
-        <!-- All Mango Card -->
-        <div class="card-container col-md-9">
-          <div id="card" class="row row-cols-md-3 gap-1">
-            <!-- Mango -->
-          </div>
-          <div id="nodata" class="nodata">
-            <img src="Images/no_data.png" alt>
-          </div>
+    
+        <!-- All Mango Cards -->
+        <div class="card-container">
+            <div id="card" class="row row-cols-md-3 gap-1">
+                <!-- Mango Cards Will Appear Here -->
+            </div>
+            <div id="nodata" class="nodata">
+                <img src="Images/no_data.png" alt="No Data">
+            </div>
         </div>
-      </div>
-
+    </div>
+    
     </main>
 
     <footer class="footer p-5">
@@ -144,14 +129,19 @@
         <div class="col-md-3">
           <h5>Follow Us</h5>
           <div class="icons">
-            <a href="#" aria-label="Facebook" title="Facebook"><i class="fa-brands fa-facebook"></i></a>
-            <a href="#" aria-label="Email" title="Email"><i class="fa-solid fa-envelope"></i></a>
-            <a href="#" aria-label="WhatsApp" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
-            <a href="#" aria-label="Instagram" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
-            <a href="#" aria-label="Twitter" title="Twitter"><i class="fa-brands fa-square-twitter"></i></a>
+            <a href="#" aria-label="Facebook" title="Facebook"><i
+                class="fa-brands fa-facebook"></i></a>
+            <a href="#" aria-label="Email" title="Email"><i
+                class="fa-solid fa-envelope"></i></a>
+            <a href="#" aria-label="WhatsApp" title="WhatsApp"><i
+                class="fa-brands fa-whatsapp"></i></a>
+            <a href="#" aria-label="Instagram" title="Instagram"><i
+                class="fa-brands fa-instagram"></i></a>
+            <a href="#" aria-label="Twitter" title="Twitter"><i
+                class="fa-brands fa-square-twitter"></i></a>
           </div>
         </div>
-    
+
         <!-- About Sweet Haven Section -->
         <div class="col-md-3">
           <h5>About Sweet Haven</h5>
@@ -162,7 +152,7 @@
             <li><a href="#" title="Sustainability">Sustainability</a></li>
           </ul>
         </div>
-    
+
         <!-- Explore Mango Categories -->
         <div class="col-md-3">
           <h5>Explore Mangoes</h5>
@@ -173,27 +163,28 @@
             <li><a href="#" title="Gopalbogh Mangoes">Gopalbogh Mangoes</a></li>
           </ul>
         </div>
-    
+
         <!-- Customer Support Section -->
         <div class="col-md-3">
           <h5>Customer Support</h5>
           <ul>
             <li><a href="#" title="FAQs">FAQs</a></li>
             <li><a href="#" title="Contact Us">Contact Us</a></li>
-            <li><a href="#" title="Shipping & Delivery">Shipping & Delivery</a></li>
+            <li><a href="#" title="Shipping & Delivery">Shipping &
+                Delivery</a></li>
             <li><a href="#" title="Return Policy">Return Policy</a></li>
             <li><a href="#" title="Report an Issue">Report an Issue</a></li>
           </ul>
         </div>
       </div>
-    
+
       <!-- Footer Bottom Section -->
       <hr>
       <p class="text-center text-white mt-3">
-        <small>Copyright 2024 © Sweet Haven. All Rights Reserved | Designed with ❤ for Mango Lovers</small>
+        <small>Copyright 2024 © Sweet Haven. All Rights Reserved | Designed with
+          ❤ for Mango Lovers</small>
       </p>
     </footer>
-    
 
     <!-- Script file cdn -->
     <script src="app.js"></script>

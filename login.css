@@ -1,33 +1,36 @@
+/* Main Login Container */
 .login-container {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
     min-height: 80vh;
     margin-bottom: 50px;
-    background: linear-gradient(to right, #f7da96, #fa868a);
+    background: white;
     padding: 20px;
 }
 
-/* Left Section */
-.login-container .col-md-6:first-child {
+/* Ensure each section takes full width on small screens */
+.col-md-6 {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     text-align: center;
+    width: 50%;
 }
 
+/* Title */
 .title {
-    font-size: 2.5rem;
+    font-size: 2rem;
     font-weight: bold;
     color: #fff;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
 }
 
-/* Credentials Buttons */
+/* Credentials Button */
 .credentials {
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
 .credentials button {
@@ -48,17 +51,17 @@
     color: #fff;
 }
 
-/* Form Styling */
+/* Form */
 form {
     width: 100%;
-    max-width: 400px;
-    margin-top: 20px;
+    max-width: 350px;
+    margin-top: 15px;
 }
 
 .input {
     width: 100%;
     padding: 10px 15px;
-    margin-bottom: 15px;
+    margin-bottom: 12px;
     border: 2px solid #fbd786;
     border-radius: 5px;
     font-size: 1rem;
@@ -72,7 +75,7 @@ form {
     outline: none;
 }
 
-/* Submit Button */
+/* Login Button */
 .reg-submit {
     display: block;
     width: 100%;
@@ -93,8 +96,11 @@ form {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
+/* Image */
 .login-img {
-    width: 600px;
+    width: 100%;
+    max-width: 400px;
+    margin-top: 20px;
 }
 
 /* Responsive Design */
@@ -102,13 +108,15 @@ form {
     .login-container {
         flex-direction: column;
         text-align: center;
+        min-height: auto;
     }
 
-    .login-container .col-md-6 {
+    .col-md-6 {
         width: 100%;
     }
 
     .login-container .col-md-6:last-child {
-        margin-top: 20px;
+        order: -1; /* Moves the form above the image */
+        margin-bottom: 20px;
     }
 }

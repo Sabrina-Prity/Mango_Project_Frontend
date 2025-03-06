@@ -1,10 +1,10 @@
 const handleCustomerList = () => {
     const token = localStorage.getItem("token");
 
-    if (!token) {
-        alert("You need to log in to view your account!");
-        return;
-    }
+    // if (!token) {
+    //     alert("You need to log in to view your account!");
+    //     return;
+    // }
 
 
     fetch('https://mango-project-six.vercel.app/customer/customer-list/', {

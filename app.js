@@ -1,23 +1,45 @@
+// const loadCategory = () => {
+//     fetch("https://mango-project-six.vercel.app/category/list/")
+//         .then((res) => res.json())
+//         // .then((data) => console.log(data))
+//         .then((data) => displayCategory(data))
+//         .catch((err) => console.log(err));
+// };
+
+// const displayCategory = ((data)=>{
+//     data?.forEach((item)=>{
+//         const parent = document.getElementById("category");
+//             const li = document.createElement("li");
+//             li.classList.add("dropdown-item");
+//             // li.innerText = item?.name;
+//             li.innerHTML= `
+//             <li onclick="loadMangos('${item?.name}')"> ${item?.name} </li>
+//             `
+//             parent.appendChild(li);
+//     });
+//  });
 const loadCategory = () => {
     fetch("https://mango-project-six.vercel.app/category/list/")
         .then((res) => res.json())
-        // .then((data) => console.log(data))
         .then((data) => displayCategory(data))
         .catch((err) => console.log(err));
 };
 
-const displayCategory = ((data)=>{
-    data?.forEach((item)=>{
-        const parent = document.getElementById("category");
-            const li = document.createElement("li");
-            li.classList.add("dropdown-item");
-            // li.innerText = item?.name;
-            li.innerHTML= `
-            <li onclick="loadMangos('${item?.name}')"> ${item?.name} </li>
-            `
-            parent.appendChild(li);
+const displayCategory = (data) => {
+    const parent = document.getElementById("category");
+    parent.innerHTML = ""; // Clear previous categories before appending
+
+    data?.forEach((item) => {
+        const li = document.createElement("li");
+        li.classList.add("category-item");
+        li.innerHTML = `
+            <span onclick="loadMangos('${item?.name}')">${item?.name}</span>
+        `;
+        parent.appendChild(li);
     });
- });
+};
+
+
 
  const loadMangos = (search) => 
     {
@@ -83,10 +105,10 @@ loadMangos();
 const createCart=()=>{
     const token = localStorage.getItem("token");
     console.log("Create Cart",token)
-    if(!token){
-        alert("Please Login!")
-        return
-    }
+    // if(!token){
+    //     alert("Please Login!")
+    //     return
+    // }
     object = {
         user : localStorage.getItem("user_id"),
     }

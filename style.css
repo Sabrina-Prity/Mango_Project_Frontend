@@ -1,39 +1,39 @@
 body {
-    width: 95%;
+    width: 100%;
     margin: auto;
     font-family: Arial, sans-serif;
 }
 
 /* Navbar Styling */
 .custom-navbar {
-    background: linear-gradient(to right, #fbd786, #f7797d);
-    border-radius: 10px;
-    padding: 10px 20px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
-    margin-top: 10px;
+    /* background: #ffc82f; */
+    background: #18634C;
+    height: 80px;
+    /* border-radius: 10px; */
+    padding: 4px 30px;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
-.nav-img {
+/* .nav-img {
     display: flex;
     align-items: center;
     gap: 10px;
-}
+} */
 
 .nav-img h2 {
     font-family: 'Pacifico', cursive;
-    font-size: 28px;
-    color: #fff;
+    font-size: 32px;
+    color: white;
+    font-weight: bold;
     margin: 0;
 }
 
-.nav-img img {
+/* .nav-img img {
     height: 50px;
     width: auto;
-}
+} */
 
 .navbar-nav {
     display: flex;
@@ -45,22 +45,28 @@ body {
 }
 
 .navbar-nav .nav-link {
-    color: #fff;
-    font-size: 16px;
-    font-weight: 500;
+    color: whitesmoke;
+    font-size: 22px;
+    /* font-weight: 550; */
     padding: 10px 15px;
-    transition: color 0.3s ease;
+    /* transition: color 0.3s ease; */
     text-decoration: none;
 }
 
-.navbar-nav .nav-link:hover,
 .navbar-nav .nav-link.active {
-    color: #658b3a;
+    color: white;
+    font-weight: bold;
 }
+/* .navbar-nav .nav-link:hover,
+.navbar-nav{
+    /* color: #435d31eb; */
+    /* color: rgb(231, 229, 229); */
+    
+/* } */ 
 
 .btn-cart {
-    background-color: #ffbe0b;
-    color: #fff;
+    background-color: white;
+    color: #ffc82f;
     border: none;
     border-radius: 20px;
     padding: 1px 20px;
@@ -88,8 +94,8 @@ body {
     margin-bottom: 50px;
     position: relative;
     overflow: hidden;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* border-radius: 10px; */
+    
 }
 
 .carousel-item img {
@@ -110,45 +116,60 @@ body {
     background-color: rgba(0, 0, 0, 0.7);
 }
 
+/* Welcome div */
 .welcome-container {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-wrap: wrap; /* Allows wrapping on smaller screens */
+    align-items: center; /* Centers items vertically */
+    justify-content: space-between; /* Spaces items properly */
+    gap: 0px;
     margin: 40px 0;
     padding: 40px;
     background-color: #f9f9f9;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center; /* Ensures text stays aligned on smaller screens */
+}
+
+/* Image Container */
+.welcome-img {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .welcome-img img {
-    width: 550px;
+    width: 85%; /* Ensures responsiveness */
     height: 500px;
+    margin-right: 70px;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-
+    
 }
 
+/* Text Container */
 .welcome-text {
-    text-align: left;
-    color: #333;
+    flex: 1;
+    max-width: 800px; /* Limits text width for better readability */
+    text-align: left; /* Aligns text to the left */
 }
 
 .welcome-text h1 {
-    text-align: center;
     font-size: 35px;
-    color: #2a7849;
-    margin-bottom: 15px;
+    color: #18634C;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: center;
 }
 
 .welcome-text p {
-    text-align: center;
-    /* text-wrap: wrap; */
-    font-size: 16px;
+    font-size: 20px;
     line-height: 1.6;
     padding: 20px;
 }
 
+
+/* Search */
 .search-bar-container {
     display: flex;
     align-items: center;
@@ -171,7 +192,7 @@ body {
 
 /* Search Button Styling */
 .btn-search {
-    background-color: #ffbe0b;
+    background-color: #18634C;
     color: #fff;
     border-radius: 20px;
     padding: 10px 20px;
@@ -182,83 +203,61 @@ body {
 }
 
 .btn-search:hover {
-    background-color: #f79c00;
+    background-color: #ffc82f;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
-.btn-search:focus {
+/* .btn-search:focus {
     outline: none;
     box-shadow: 0 0 8px rgba(247, 156, 0, 0.5);
-}
+} */
 
-/* Aligning Search Bar and Button */
-.d-flex {
-    display: flex;
-    align-items: center;
-    gap: 10px; /* Space between input and button */
-}
 
-.main-container {
+
+/* Category Section */
+.category-section {
+    width: 100%;
     display: flex;
-    justify-content: space-around;
     flex-wrap: wrap;
-    gap: 20px;
-    margin: 20px;
-}
-
-.category-container {
-    height: 70px;
-    margin: 20px 0; /* Add space around the container */
+    justify-content: center;
+    gap: 10px; /* Space between category buttons */
+    margin-bottom: 20px; /* Space between categories and cards */
     padding: 10px;
-    background-color: #f5d78f; /* Light background */
-    border-radius: 10px; /* Rounded corners */
-    box-shadow: 1px 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 1px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* Dropdown Button Styling */
-.btn-secondary {
-    background-color: #ffbe0b; /* Mango yellow */
-    color: #fff;
-    border: none;
-    border-radius: 20px; /* Rounded corners */
-    font-weight: bold;
-    text-transform: uppercase;
-    padding: 10px 20px;
-    width: 100%; /* Full width to match the column size */
-    cursor: pointer;
-    transition: all 0.3s ease; /* Smooth transition */
-}
-
-.btn-secondary:hover {
-    background-color: #f79c00; /* Darker yellow on hover */
-    color: #fff;
-}
-
-/* Dropdown Menu Styling */
-.dropdown-menu {
-    background-color: #4f5862; /* Dark background for the dropdown */
-    border-radius: 10px; /* Rounded corners */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Enhanced shadow */
+/* Category List */
+.category-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
     padding: 0;
-    margin-top: 10px; /* Space between button and dropdown */
-    max-height: 300px; /* Limit height of dropdown */
-    overflow-y: auto; /* Scrollable if content exceeds */
+    margin: 0;
+    list-style: none;
 }
 
-/* Individual Dropdown Item Styling */
-.dropdown-item {
-    color: #e1dbdb; /* Light color text */
+/* Category Items as Buttons */
+.category-item {
+    background-color: #18634C; /* Primary Green */
+    color: white;
     padding: 10px 15px;
+    border-radius: 20px;
     font-size: 16px;
+    text-align: center;
     cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth hover effect */
-}
-
-.dropdown-item:hover {
-    background-color: #ffbe0b; /* Highlight category on hover */
-    color: #fff;
+    transition: background-color 0.3s ease;
+    border: none;
     font-weight: bold;
 }
+
+.category-item:hover {
+    background-color: #ffc82f; /* Yellow on Hover */
+    color: #18634C;
+}
+
 
 .card-container {
     flex: 3;
@@ -272,12 +271,12 @@ body {
     width: 300px;
     margin-left: 20px;
     margin-bottom: 20px;
-    background: linear-gradient(to right, #f5d78f, #f89397);
-    border-radius: 10px;
+    background: #f9f9f9;
+    border-radius: 5px;
     padding: 15px;
     text-align: center;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    color: #fff;
+    color: #000000;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -409,10 +408,6 @@ footer {
         font-size: 20px;
     }
 
-    .nav-img img {
-        height: 40px;
-    }
-
     .navbar-nav .nav-link {
         font-size: 14px;
         padding: 8px 10px;
@@ -423,36 +418,45 @@ footer {
         padding: 5px 10px;
     }
 
+    .carousel {
+        height: 350px;
+        
+    }
+
     .search-bar {
-        width: 100%;
+        width: 70%;
         margin-bottom: 10px;
         padding: 5px;
         font-size: 14px;
     }
 
-    .btn-search {
+    /* .btn-search {
         font-size: 12px;
         padding: 5px 10px;
-    }
+    } */
 
     .dropdown-menu {
-        font-size: 14px;
+        font-size: 18px;
     }
 
     .welcome-container {
         flex-direction: column;
+        text-align: center;
+        align-items: center;
         padding: 20px;
     }
 
     .welcome-img img {
-        width: 100%;
+        width: 80%;
         height: auto;
-        margin-bottom: 20px;
+        margin: 0 auto 15px auto;
+        display: block;
     }
 
     .welcome-text {
-        text-align: center;
-        margin-top: 0;
+        width: 100%;
+        max-width: 90%;
+        padding: 10px;
     }
 
     .welcome-text h1 {
@@ -460,21 +464,25 @@ footer {
     }
 
     .welcome-text p {
-        text-align: center;
-        width: 300px;
-        word-wrap: break-word;
-        margin-left: 25px;
         font-size: 14px;
+        line-height: 1.5;
         padding: 10px;
     }
-    .category-container{
-        width: 200px;
+
+    .category-item {
+        font-size: 14px;
+        padding: 8px 12px;
+    }
+    #nodata img {
+        width: 250px;
+        margin: 0 auto;
+        display: block;
     }
 
-    #nodata img {
+    /* #nodata img {
         width: 300px;
         margin-left: 50px;
-    }
+    } */
 }
 
 /* Additional Styles for Very Small Screens (425px width) */
@@ -486,10 +494,6 @@ footer {
 
     .nav-img h2 {
         font-size: 18px;
-    }
-
-    .nav-img img {
-        height: 30px;
     }
 
     .navbar-nav .nav-link {
@@ -517,24 +521,34 @@ footer {
         padding: 5px;
     }
 
-    .welcome-container {
+     .welcome-container {
         flex-direction: column;
-        padding: 10px;
+        align-items: center;
+        text-align: center;
     }
 
-    .welcome-img img {
-        width: 100%;
-        height: auto;
-        margin-bottom: 10px;
+    .welcome-text {
+        padding: 15px;
     }
 
     .welcome-text h1 {
-        font-size: 24px;
+        font-size: 25px; /* Slightly smaller for better fit */
     }
 
     .welcome-text p {
+        font-size: 16px;
+        line-height: 1.5;
+        padding: 10px;
+    }
+
+    .category-list {
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .category-item {
         font-size: 12px;
-        padding: 5px;
+        padding: 6px 10px;
     }
 
     footer {
