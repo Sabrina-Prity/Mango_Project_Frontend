@@ -33,6 +33,9 @@
     margin-bottom: 15px;
 }
 
+.demo-cre{
+    color: #18634C;
+}
 .credentials button {
     padding: 10px 15px;
     margin: 5px;
@@ -40,14 +43,14 @@
     border-radius: 5px;
     font-size: 1rem;
     cursor: pointer;
-    background-color: #d1d1d1;
-    color: #f7797d;
+    background-color: #faf7f7;
+    color: #18634C;
     font-weight: bold;
     transition: 0.3s;
 }
 
 .credentials button:hover {
-    background-color: #f7797d;
+    background-color: #18634C;
     color: #fff;
 }
 

@@ -73,10 +73,7 @@ const displayMangos = (mangos) => {
         div.innerHTML = `
             <img class="mango-img" src="${mango?.image}" />
             <h4>${mango?.name}</h4>
-            <h6>Price: $${mango?.price}</h6>
-            <h6>Quantity: ${mango?.quantity}</h6>
-            <h6>Category: ${mango?.category}</h6>
-            <p>${mango?.description.slice(0, 70)}</p>
+            <h6>$${mango?.price}</h6>
             <button class="details-btn">
                 <a href="mangoDetails.html?mangoId=${mango.id}">Details</a>
             </button>

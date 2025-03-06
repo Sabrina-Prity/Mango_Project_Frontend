@@ -19,6 +19,11 @@ const loadcartId = () => {
 loadcartId();
 
 const displayMangosDetails = (mango) => {
+    //  if (!token) {
+    //     alert("You need to log in to view your account!");
+    //     return;
+    // }
+
     const parent = document.getElementById("mango-details");
     parent.innerHTML = "";  // Clear previous content
 
