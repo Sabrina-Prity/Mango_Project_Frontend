@@ -9,7 +9,7 @@ body {
     /* background: #ffc82f; */
     background: #18634C;
     height: 80px;
-    /* border-radius: 10px; */
+    border-radius: 10px;
     padding: 4px 30px;
     display: flex;
     align-items: center;
