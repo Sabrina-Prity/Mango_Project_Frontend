@@ -1,9 +1,9 @@
 const loadcartId = () => {
     const token = localStorage.getItem("token");
-    if (!token) {
-        alert("Please login");
-        return;
-    }
+    // if (!token) {
+    //     alert("Please login");
+    //     return;
+    // }
     fetch(`https://mango-project-six.vercel.app/add_to_cart/cart_details/${localStorage.getItem("user_id")}/`,{
         headers: {
             'Authorization': `Token ${token}`,
@@ -19,11 +19,6 @@ const loadcartId = () => {
 loadcartId();
 
 const displayMangosDetails = (mango) => {
-    //  if (!token) {
-    //     alert("You need to log in to view your account!");
-    //     return;
-    // }
-
     const parent = document.getElementById("mango-details");
     parent.innerHTML = "";  // Clear previous content
 
@@ -36,41 +31,51 @@ const displayMangosDetails = (mango) => {
     closeButton.onclick = () => window.history.back();
     parent.appendChild(closeButton);
 
+    // Check if user is logged in (modify this based on your authentication method)
+    const token = localStorage.getItem("token"); // Example: Checking token in local storage
+    const isLoggedIn = !!token; // Convert to boolean
+
     div.innerHTML = `
-        <img class="mango-img" src="${mango?.image}" />
-        <div class="mng-detail">
-            <h4>${mango?.name}</h4>
-            <h6>Price: $${mango?.price}</h6>
-            <h6>Quantity: ${mango?.quantity}</h6>
-            <h6>Category: ${mango?.category}</h6>
-            <p>${mango?.description}</p>
-            
-            <label for="quantity">Quantity:</label>
-            <input type="number" id="quantity" name="quantity" min="1" max="${mango?.quantity}" value="1">
-            
-            <button class="details-btn">
-                <a  onclick="addToCart('${mango.id}')">Add To Cart</a>
-            </button>
-            <button class="buy-now-btn" onclick="buyNow('${mango.id}', ${mango.price}, ${mango.quantity})">Buy Now</button>
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <img class="mango-img" src="${mango?.image}" />
+            </div>
+            <div class="col-12 col-md-6">
+                <div class="mng-detail">
+                    <h4>${mango?.name}</h4>
+                    <h6>Price: $${mango?.price}</h6>
+                    <h6>Quantity: ${mango?.quantity}</h6>
+                    <h6>Category: ${mango?.category}</h6>
+                    <p>${mango?.description}</p>
+                    
+                    <label for="quantity">Quantity:</label>
+                    <input type="number" id="quantity" name="quantity" min="1" max="${mango?.quantity}" value="1">
+                    
+                    <button class="details-btn" ${isLoggedIn ? "" : "disabled"} onclick="addToCart('${mango.id}')">
+                        Add To Cart
+                    </button>
+
+                    <button class="buy-now-btn" ${isLoggedIn ? "" : "disabled"} onclick="buyNow('${mango.id}', ${mango.price}, ${mango.quantity})">
+                        Buy Now
+                    </button>
+
+                    ${!isLoggedIn ? `<p class="login-warning" style="color:#BE4209; margin-top:10px;">🔒 You need to log in to add items to the cart or buy.</p>` : ""}
+                </div>
+            </div>
         </div>
     `;
 
     parent.appendChild(div);
 
-    displayComments(mango.id);
-     // Display comments for this mango
+    displayComments(mango.id); // Display comments for this mango
 };
+
+
 
 const getparams = () => {
     const param = new URLSearchParams(window.location.search).get("mangoId");
     console.log("Cart Mango Id", param);
-    const token = localStorage.getItem("token");
-    fetch(`https://mango-project-six.vercel.app/product/mango/${param}/`, {
-        headers: {
-            'Authorization': `Token ${token}`,
-            'Content-Type': 'application/json',
-        }
-    })
+    fetch(`https://mango-project-six.vercel.app/product/mango/${param}/`)
         .then((res) => res.json())
         .then((data) => {
             console.log("Cart Details Mango", data);

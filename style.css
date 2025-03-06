@@ -268,7 +268,7 @@ body {
 }
 
 .mango-card {
-    width: 300px;
+    max-width: 200px;
     margin-left: 20px;
     margin-bottom: 20px;
     background: #f9f9f9;

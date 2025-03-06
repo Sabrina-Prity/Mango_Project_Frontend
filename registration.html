@@ -36,76 +36,45 @@
 
 
     <main>
-        <div class="login-container">
-            <div class="col-md-6">
+      <div class="login-container">
+          <!-- Form First -->
+          <div class="reg-form col-md-6">
               <h1 class="title mt-5">Please Registration</h1>
               <!-- Upload image into frontend -->
-              <form action="#" enctype="multipart/form-data" method="post" id="upload-form" >
-                <p id="error" class="text-danger"></p>
-                <input
-                  id="username"
-                  type="text"
-                  class="input"
-                  placeholder="username"
-                  required
-                />
-                <input
-                  id="first_name"
-                  type="text"
-                  class="input"
-                  placeholder="First Name"
-                  required
-                />
-                <input
-                  id="last_name"
-                  type="text"
-                  class="input"
-                  placeholder="last Name"
-                  required
-                />
-                <input
-                  id="mobile_no"
-                  type="text"
-                  class="input"
-                  placeholder="Your mobile number"
-                  required
-                />
-                <input
-                  id="email"
-                  type="email"
-                  class="input"
-                  placeholder="Email"
-                  required
-                />
-                <input
-                  id="password"
-                  type="password"
-                  class="input"
-                  placeholder="password"
-                  required
-                />
-                <input
-                  id="confirm_password"
-                  type="password"
-                  class="input"
-                  placeholder="Confirm password"
-                  required
-                />
-                <input
-                  id="image"
-                  type="file"
-                  class="input"
-                  required
-                />
-                <button onclick="handleRegistration(event)" class="reg-submit">Registration</button>
+              <form action="#" enctype="multipart/form-data" method="post" id="upload-form">
+                  <p id="error" class="text-danger"></p>
+                  
+                  <div class="input-group">
+                      <input id="username" type="text" class="input" placeholder="Username" required />
+                      <input id="first_name" type="text" class="input" placeholder="First Name" required />
+                  </div>
+  
+                  <div class="input-group">
+                      <input id="last_name" type="text" class="input" placeholder="Last Name" required />
+                      <input id="mobile_no" type="text" class="input" placeholder="Your Mobile Number" required />
+                  </div>
+  
+                  <div class="input-group">
+                      <input id="email" type="email" class="input" placeholder="Email" required />
+                      <input id="password" type="password" class="input" placeholder="Password" required />
+                  </div>
+  
+                  <div class="input-group">
+                      <input id="confirm_password" type="password" class="input" placeholder="Confirm Password" required />
+                      <input id="image" type="file" class="input" required />
+                  </div>
+  
+                  <button onclick="handleRegistration(event)" class="reg-submit">Registration</button>
               </form>
-            </div>
-            <div class="col-md-6">
-              <img class="w-100" src="Images/reg.png" alt="" />
-            </div>
           </div>
-
-    </main>
+  
+          <!-- Image Second -->
+          <div class="col-md-6">
+              <img class="reg-img" src="Images/Sign up-rafiki.png" alt="Signup Image" />
+          </div>
+      </div>
+  </main>
+  
 
     <footer class="footer p-5">
       <div class="container row">
