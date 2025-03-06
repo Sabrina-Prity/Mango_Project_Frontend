@@ -23,7 +23,7 @@
 .title {
     font-size: 2rem;
     font-weight: bold;
-    color: #fff;
+    color: #18634C;
     margin-bottom: 15px;
     text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
 }
@@ -40,7 +40,7 @@
     border-radius: 5px;
     font-size: 1rem;
     cursor: pointer;
-    background-color: #fff;
+    background-color: #d1d1d1;
     color: #f7797d;
     font-weight: bold;
     transition: 0.3s;
