@@ -124,6 +124,26 @@ body {
     font-size: 32px;
     font-weight: bold;
 }
+.carousel-overlay h1 {
+    color: yellow;
+    font-size: 62px;
+    font-weight: bolder;
+}
+
+@keyframes pulseText {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+  }
+  
+  .offer-text {
+    font-size: 2rem; /* Adjust base size */
+    font-weight: bold;
+    color: #ff0000; /* Change color as needed */
+    text-align: center;
+    animation: pulseText 1.5s infinite ease-in-out;
+  }
+  
 
 .carousel-overlay p {
     font-size: 18px;
@@ -198,21 +218,118 @@ body {
 }
 
 
-/* Search */
+.benefits-section {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    padding: 40px 20px;
+    background: #fff;
+    text-align: left;
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
+
+  .benefit {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    max-width: 500px;
+  }
+
+  .benefit-icon {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 2px dashed #4caf50;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    color: #4caf50;
+    flex-shrink: 0;
+  }
+
+  .benefit-text h3 {
+    font-size: 18px;
+    color: #333;
+    font-weight: bold;
+    margin: 0;
+  }
+
+  .benefit-text p {
+    font-size: 14px;
+    color: #666;
+    margin: 5px 0 0;
+  }
+
+
+
+
+
+/* Global Container */
+.main-container {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+
+/* Category and Search Section */
+.category-search-section {
+    width: 100%;
+    padding: 10px;
+    
+}
+
+/* Category Section */
+.category-section {
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    align-items: center;
+    justify-content: flex-start;
+    gap: 20px; /* Space between the title, search bar, and category list */
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+}
+
+/* Category Header (Stack the title and search bar vertically) */
+.category-header {
+    display: flex;
+    flex-direction: column; /* Stack title and search bar vertically */
+    align-items: center; /* Center the title and search bar */
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 20px; /* Space between title/search bar and the category list */
+}
+
+/* Heading Styling */
+.category-section h1 {
+    color: #18634C;
+    font-weight: bold;
+    text-align: center; /* Ensure text is centered */
+    margin-bottom: 10px; 
+    margin-top: 20px;
+}
+
+/* Search Bar Container (Aligns the search bar below the title) */
 .search-bar-container {
     display: flex;
     align-items: center;
-    justify-content: center; /* Centers the content horizontally */
+    justify-content: center; /* Center the search bar */
     gap: 10px; /* Space between the input and button */
-    margin: 20px auto; /* Add vertical spacing and center horizontally */
-    padding: 10px; /* Internal spacing around the content */
-    max-width: 600px; /* Limits the container's width */
-    background-color: #f9f9f9; /* Light background for contrast */
-    border: 1px solid #e1dbdb; /* Subtle border */
-    border-radius: 25px; /* Rounded corners */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background-color: #f9f9f9;
+    border: 1px solid #e1dbdb;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+/* Search Bar Input Focus */
 .search-bar:focus {
     outline: none;
     border-color: #ffbe0b;
@@ -221,10 +338,10 @@ body {
 
 /* Search Button Styling */
 .btn-search {
-    background-color: #18634C;
+    background-color: #4caf50;
     color: #fff;
-    border-radius: 20px;
-    padding: 10px 20px;
+    border-radius: 5px;
+    padding: 5px 8px;
     font-size: 16px;
     border: none;
     cursor: pointer;
@@ -236,50 +353,20 @@ body {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
-/* .btn-search:focus {
-    outline: none;
-    box-shadow: 0 0 8px rgba(247, 156, 0, 0.5);
-} */
-
-
-/* Global Container */
-.main-container {
-    width: 100%;
-    padding: 0;
-    margin: 0;
-}
-
-/* Category Section */
-.category-section {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px; /* Space between category buttons */
-    margin-bottom: 30px; /* Space between categories and cards */
-    padding: 10px;
-    background-color: #f9f9f9;
-    border-radius: 10px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    width: 100%;
-}
-
 /* Category List */
 .category-list {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 10px;
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    margin: 0;
+    padding: 5px;
+    margin-top: -30px;
     list-style: none;
 }
 
 /* Category Items as Buttons */
 .category-item {
-    background-color: #18634C; /* Primary Green */
+    background-color: #4caf50; /* Primary Green */
     color: white;
     padding: 10px 15px;
     border-radius: 5px;
@@ -294,12 +381,16 @@ body {
 .category-item:hover {
     background-color: #ffc82f; /* Yellow on Hover */
     color: black;
-    font-weight:normal;
+    font-weight: normal;
 }
+
+
+
 
 
 /* Full-width background section */
 .mango-section {
+    margin-top: -70px;
     background-color: #f9f9f9;
     padding: 40px 20px;
     width: 100%;
@@ -315,34 +406,43 @@ body {
     margin-bottom: -30px;
 }
 
+/* Mango Grid */
 .mango-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Use auto-fill to distribute available space */
     gap: 15px;
     justify-content: center;
     padding: 35px;
+    width: 100%; /* Ensure the grid takes up the full width */
 }
 
+/* Mango Card */
 .mango-card {
     background: #fff;
     border-radius: 10px;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     padding: 15px;
-    /* text-align: center; */
     cursor: pointer;
     transition: transform 0.2s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
+/* Hover Effect */
 .mango-card:hover {
     transform: scale(1.05);
 }
 
+/* Mango Image */
 .mango-img {
     width: 100%;
     height: 140px;
     border-radius: 10px;
 }
 
+/* Mango Card Text */
 .mango-card h4 {
     margin: 10px 0 5px;
     font-size: 18px;
@@ -353,6 +453,13 @@ body {
     font-weight: bold;
     color: green;
 }
+
+/* Ensure cards are centered if only one or two cards are displayed */
+.mango-grid {
+    justify-items: center; /* Center items when there are fewer cards */
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Ensure columns are flexible */
+}
+
 
 
 /* No Data Message */
@@ -377,13 +484,160 @@ body {
 
 
 
+/* General Styles for the Sections */
+.product-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.product-card {
+    width: 200px;
+    border: 1px solid #ddd;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.product-card img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.product-card h3 {
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+.product-card button {
+    margin-top: 10px;
+    background-color: #f1c40f;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.product-card button:hover {
+    background-color: #e67e22;
+}
+
+.offer-card {
+    background-color: #f39c12;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.offer-card h3 {
+    margin-bottom: 15px;
+}
+
+
+/* Customer review */
+.customer-reviews-section {
+    background-color: #f9f9f9;
+    padding: 40px 20px;
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    font-family: "Montserrat";
+  }
+  
+  .reviews-heading {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .review-card {
+    background: none;
+    padding: 15px;
+    text-align: center;
+  }
+  
+  .ratio img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    margin-top: 100px;
+    margin-left: 60px;
+  }
+
+
+  /* Blog */
+.blog-section {
+    width: 93%;
+    margin: auto;
+    margin-bottom: 50px;
+}
+.blog-header {
+    font-family: "Montserrat";
+    text-align: center;
+    /* font-size: 32px; */
+    font-weight: bold;
+    margin-bottom: 30px;
+    margin-top: 50px;
+    color: #18634C;
+}
+.blog-container {
+    display: flex;
+    gap: 20px;
+}
+.blog-card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.blog-card img {
+    width: 100%;
+    height: 280px;
+}
+.blog-content {
+    padding: 15px;
+}
+.tag {
+    display: inline-block;
+    background: #28a745;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+.blog-title {
+    font-family: "Montserrat";
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #18634C;
+}
+.blog-meta {
+    font-size: 12px;
+    color: #777;
+    margin-bottom: 10px;
+}
+.blog-description {
+    font-size: 14px;
+    color: #555;
+}
+
+ 
 
 
 footer h5 {
     font-size: 25px;
     font-weight: 300;
     margin-bottom: 15px;
-    color: #b4f5e2;
+    color: white;
     text-align: center;
     font-weight: bold;
 }
@@ -435,7 +689,7 @@ footer p {
 }
 
 footer p small {
-    color: #b4f5e2;
+    color: #99cb58;
 }
 
 footer {
@@ -474,17 +728,6 @@ footer {
         
     }
 
-    .search-bar {
-        width: 70%;
-        margin-bottom: 10px;
-        padding: 5px;
-        font-size: 14px;
-    }
-
-    /* .btn-search {
-        font-size: 12px;
-        padding: 5px 10px;
-    } */
 
     .dropdown-menu {
         font-size: 18px;
@@ -520,6 +763,17 @@ footer {
         padding: 10px;
     }
 
+    .benefits-section {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+      .benefit {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
     .category-item {
         font-size: 14px;
         padding: 8px 12px;
@@ -536,6 +790,65 @@ footer {
         width: 350px;
     }
 
+
+    
+    .customer-reviews-section h1 {
+        font-size: 22px;
+        margin-top: 20px;
+        margin-bottom: -30px;
+    }
+
+    /* Make sure the slider works well on smaller screens */
+    .swiffy-slider {
+        width: 100%;
+        overflow: hidden;
+    }
+
+    /* Adjust the review cards layout to 3 cards at a time for 768px screen */
+    .slider-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr); /* 3 columns for 768px and below */
+        gap: 10px;
+    }
+
+    /* Adjust the review card layout */
+    .text-center {
+        padding: 10px;
+    }
+
+    /* Adjust image size for smaller screens */
+    .ratio img {
+        width: 120px; /* Smaller image size */
+        height: 120px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /* Reduce the padding and spacing */
+    .py-4 {
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    /* Make the review card title font smaller */
+    .h5 {
+        font-size: 18px;
+    }
+
+    /* Adjust the "stars" section for better visibility */
+    .stars {
+        font-size: 18px;
+    }
+
+    /* Ensure slider navigation buttons are appropriately sized */
+    .slider-nav {
+        width: 30px;
+        height: 30px;
+    }
+
+    .blog-container {
+        flex-direction: column;
+    }
 
 }
 

@@ -71,9 +71,10 @@
       <!-- Overlay Content -->
       <div class="carousel-overlay">
         <h2>Delicious & Fresh Mangos</h2>
+        <h1 class="offer-text">UP TO 35% OFF</h1>
         <p>Enjoy the sweetest and juiciest mangos, carefully handpicked for the
           best quality.</p>
-          <a href="#all-mango-section" class="see-all-btn">See All Mangos</a>
+        <a href="#all-mango-section" class="see-all-btn">Shop Now</a>
       </div>
 
       <!-- Carousel Controls -->
@@ -111,25 +112,62 @@
       </div>
     </div>
 
-    <main>
-      <!-- Search bar -->
-      <div class="search-bar-container">
-        <input id="search" class="form-control search-bar" type="search"
-          placeholder="Search"
-          aria-label="Search">
-        <button onclick="handleSearch(event)" class="btn btn-search"
-          type="submit">Search</button>
+    <!-- Benefits Section -->
+    <section class="benefits-section">
+      <div class="benefit">
+        <div class="benefit-icon">
+          <i class="fa-solid fa-truck"></i> <!-- Free Shipping Icon -->
+        </div>
+        <div class="benefit-text">
+          <h3>Free Shipping</h3>
+          <p>With €50 or more orders</p>
+        </div>
       </div>
 
+      <div class="benefit">
+        <div class="benefit-icon">
+          <i class="fa-solid fa-rotate"></i> <!-- Free Refund Icon -->
+        </div>
+        <div class="benefit-text">
+          <h3>Free Refund</h3>
+          <p>100% Refund Within 3 days</p>
+        </div>
+      </div>
+
+      <div class="benefit">
+        <div class="benefit-icon">
+          <i class="fa-solid fa-headset"></i> <!-- Support 24/7 Icon -->
+        </div>
+        <div class="benefit-text">
+          <h3>Support 24.7</h3>
+          <p>Call us anytime you want</p>
+        </div>
+      </div>
+    </section>
+
+    <main>
+
       <div class="main-container container-fluid">
-        <!-- Category Section -->
-        <div class="category-section">
-          <ul id="category" class="category-list"></ul>
+        <!-- Category and Search Section -->
+        <div class="category-search-section">
+          <!-- Category Section -->
+          <div class="category-section">
+            <div class="category-header">
+              <h1>All Category</h1>
+              <div class="search-bar-container">
+                <input id="search" class="form-control search-bar" type="search"
+                  placeholder="Search" aria-label="Search">
+                <button onclick="handleSearch(event)" class="btn btn-search"
+                  type="submit">Search</button>
+              </div>
+            </div>
+            <ul id="category" class="category-list"></ul>
+          </div>
         </div>
 
         <!-- All Mango Cards -->
         <div id="all-mango-section" class="mango-section">
-          <h1>All Mangos</h1>
+          <!-- <h1>All Mangos</h1> -->
           <div class="card-container">
             <!-- Loading Image -->
             <div id="loading" class="loading">
@@ -145,6 +183,205 @@
             </div>
           </div>
         </div>
+
+        <!-- Best Selling Products Section
+        <div class="best-selling-section">
+          <h1>Best Selling Products</h1>
+          <div class="product-container">
+            <div class="product-card">
+              <img src="Images/best-seller1.jpg" alt="Best Seller 1">
+              <h3>Mango Type 1</h3>
+              <p>Delicious and juicy!</p>
+              <button class="btn btn-buy">Buy Now</button>
+            </div>
+            <div class="product-card">
+              <img src="Images/best-seller2.jpg" alt="Best Seller 2">
+              <h3>Mango Type 2</h3>
+              <p>Perfectly ripe and sweet.</p>
+              <button class="btn btn-buy">Buy Now</button>
+            </div>
+          </div>
+        </div> -->
+
+        <!-- Offer Section -->
+        <!-- <div class="offer-section">
+          <h1>Special Offers</h1>
+          <div class="offer-container">
+            <div class="offer-card">
+              <h3>20% Off on Mango Purchases</h3>
+              <p>Get 20% off on all mango orders over $50. Don't miss out!</p>
+              <button class="btn btn-offer">Shop Now</button>
+            </div>
+            <div class="offer-card">
+              <h3>Buy 1 Get 1 Free on Select Mangoes</h3>
+              <p>Choose from a variety of mangoes and get another one free!</p>
+              <button class="btn btn-offer">Shop Now</button>
+            </div>
+            Add more offers here
+          </div>
+        </div> -->
+
+        <!-- Customer Reviews Section -->
+        <div class="customer-reviews-section">
+          <h1
+            style="color: #18634C;font-weight: bold; margin-bottom: -90px; margin-top: -40px;">What
+            Customers Say</h1>
+          <div
+            class="swiffy-slider slider-item-show4 slider-item-reveal slider-nav-outside slider-indicators-outside slider-indicators-round slider-indicators-dark">
+            <ul class="slider-container py-4">
+              <!-- Review 1 -->
+              <li class="slide-visible">
+                <div class="text-center p-3">
+                  <div class="ratio ratio-1x1">
+                    <img src="Images/customer-1.jpeg" class="rounded-circle"
+                      loading="lazy" alt="Customer 1">
+                  </div>
+                  <h2 class="h5 mt-2">John Doe</h2>
+                  <div class="stars">⭐⭐⭐⭐⭐</div>
+                  <p class="card-text">Amazing service! Highly recommended.</p>
+                </div>
+              </li>
+              <!-- Review 2 -->
+              <li class="slide-visible">
+                <div class="text-center p-3">
+                  <div class="ratio ratio-1x1">
+                    <img src="Images/customer-2.jpeg" class="rounded-circle"
+                      loading="lazy" alt="Customer 2">
+                  </div>
+                  <h2 class="h5 mt-2">Sarah Johnson</h2>
+                  <div class="stars">⭐⭐⭐⭐⭐</div>
+                  <p class="card-text">Great experience from start to
+                    finish.</p>
+                </div>
+              </li>
+              <!-- Review 3 -->
+              <li class="slide-visible">
+                <div class="text-center p-3">
+                  <div class="ratio ratio-1x1">
+                    <img src="Images/customer-3.jpeg" class="rounded-circle"
+                      loading="lazy" alt="Customer 3">
+                  </div>
+                  <h2 class="h5 mt-2">Michael Lee</h2>
+                  <div class="stars">⭐⭐⭐⭐⭐</div>
+                  <p class="card-text">Exceeded my expectations!</p>
+                </div>
+              </li>
+              <!-- Review 4 -->
+              <li class="slide-visible">
+                <div class="text-center p-3">
+                  <div class="ratio ratio-1x1">
+                    <img src="Images/customer-4.jpeg" class="rounded-circle"
+                      loading="lazy" alt="Customer 4">
+                  </div>
+                  <h2 class="h5 mt-2">Emma Watson</h2>
+                  <div class="stars">⭐⭐⭐⭐</div>
+                  <p class="card-text">Friendly staff and great service.</p>
+                </div>
+              </li>
+              <!-- Review 5 -->
+              <li>
+                <div class="text-center p-3">
+                  <div class="ratio ratio-1x1">
+                    <img src="Images/customer-5.jpeg" class="rounded-circle"
+                      loading="lazy" alt="Customer 5">
+                  </div>
+                  <h2 class="h5 mt-2">Chris Brown</h2>
+                  <div class="stars">⭐⭐⭐⭐⭐</div>
+                  <p class="card-text">Would definitely use again!</p>
+                </div>
+              </li>
+              <!-- Review 6 -->
+              <li>
+                <div class="text-center p-3">
+                  <div class="ratio ratio-1x1">
+                    <img src="Images/customer-1.jpeg" class="rounded-circle"
+                      loading="lazy" alt="Customer 6">
+                  </div>
+                  <h2 class="h5 mt-2">Olivia Martinez</h2>
+                  <div class="stars">⭐⭐⭐</div>
+                  <p class="card-text">Top-notch service. Worth every penny.</p>
+                </div>
+              </li>
+              <!-- Review 7 -->
+              <li>
+                <div class="text-center p-3">
+                  <div class="ratio ratio-1x1">
+                    <img src="Images/customer-2.jpeg" class="rounded-circle"
+                      loading="lazy" alt="Customer 7">
+                  </div>
+                  <h2 class="h5 mt-2">Liam Thompson</h2>
+                  <div class="stars">⭐⭐⭐⭐⭐</div>
+                  <p class="card-text">Highly satisfied with my experience.</p>
+                </div>
+              </li>
+              <!-- Review 8 -->
+              <li>
+                <div class="text-center p-3">
+                  <div class="ratio ratio-1x1">
+                    <img src="Images/customer-3.jpeg" class="rounded-circle"
+                      loading="lazy" alt="Customer 8">
+                  </div>
+                  <h2 class="h5 mt-2">Sophia Davis</h2>
+                  <div class="stars">⭐⭐⭐⭐⭐</div>
+                  <p class="card-text">Will recommend to everyone I know!</p>
+                </div>
+              </li>
+              <!-- Review 9 -->
+              <li>
+                <div class="text-center p-3">
+                  <div class="ratio ratio-1x1">
+                    <img src="Images/customer-4.jpeg" class="rounded-circle"
+                      loading="lazy" alt="Customer 9">
+                  </div>
+                  <h2 class="h5 mt-2">James Wilson</h2>
+                  <div class="stars">⭐⭐⭐⭐</div>
+                  <p class="card-text">Fantastic service, will be back
+                    again.</p>
+                </div>
+              </li>
+            </ul>
+            <button type="button" class="slider-nav"
+              aria-label="Go left"></button>
+            <button type="button" class="slider-nav slider-nav-next"
+              aria-label="Go right"></button>
+          </div>
+        </div>
+
+        <!-- Blog Section -->
+        <div class="blog-section">
+          <h1 class="blog-header">Latest News From The Blog<h1>
+          <div class="blog-container">
+              <div class="blog-card" style="flex: 1;">
+                  <img src="Images/img-3.webp" alt="Mango Basket">
+                  <div class="blog-content">
+                      <div class="tag">Mango Fresh</div>
+                      <div class="blog-title">Most early plant patents were mangoes</div>
+                      <div class="blog-meta">by MangoSeller April 27, 2025</div>
+                      <div class="blog-description">Organic mango consumption is rapidly increasing. The heightened interest in the global environment and a willingness to choose fresh fruits are growing.</div>
+                  </div>
+              </div>
+              <div class="blog-card" style="flex: 1;">
+                 
+                  <div class="blog-content">
+                      <div class="tag">Mango Fresh</div>
+                      <div class="blog-title">This is pretty cool</div>
+                      <div class="blog-meta">by MangoSeller April 27, 2025</div>
+                      <div class="blog-description">Organic mango consumption is rapidly increasing. The heightened interest in the global environment and a willingness to choose fresh fruits are growing.</div>
+                  </div>
+                  <img src="Images/img-6.webp" alt="Fresh Mangoes">
+              </div>
+              <div class="blog-card" style="flex: 1;">
+                <img src="Images/img-5.jpeg" alt="Mango Basket">
+                <div class="blog-content">
+                    <div class="tag">Mango Fresh</div>
+                    <div class="tag">Mango Fresh</div>
+                    <div class="blog-title">Why mangoes are the king of fruits</div>
+                    <div class="blog-meta">by MangoSeller April 27, 2025</div>
+                    <div class="blog-description">Mangoes are known as the king of fruits due to their rich flavor, vibrant color, and numerous health benefits. A must-have in summer diets!</div>
+                </div>
+            </div>
+          </div>
+      </div>
 
       </main>
 
