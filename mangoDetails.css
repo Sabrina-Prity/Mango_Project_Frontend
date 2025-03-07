@@ -5,6 +5,7 @@
   align-items: center;
   position: relative; /* Ensures proper positioning */
   min-height: 400px; /* Adjust this based on content */
+  margin-top: 90px;
 }
 
 .loading {
