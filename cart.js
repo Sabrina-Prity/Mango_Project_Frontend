@@ -69,7 +69,6 @@ const loadCartProduct = () => {
 };
 
 const displayCart = (items) => {
-    // console.log("Cart Items", items);
     const parent = document.getElementById("cart-section");
     parent.innerHTML = `<h2>Your Cart</h2>`;
 
@@ -78,35 +77,36 @@ const displayCart = (items) => {
         <img src="Images/cart_empty.jpg" alt="Empty Cart" class="empty-cart">
         <p>Your cart is empty!</p>
         `;
-       
-    }
-    else{
-        parent.innerHTML += `<p>Total Item : ${items.length}</p>`
+    } else {
+        parent.innerHTML += `<p>Total Item : ${items.length}</p>`;
     }
 
     items.forEach((item) => {
-        console.log("Item", item)
         const div = document.createElement("div");
         div.classList.add("cart-item");
         div.id = item.id;
 
-
         const totalPrice = (item.mango.price * item.quantity);
-        
 
         div.innerHTML = `
         <div class="cart-item-container">
+            <!-- Image section -->
             <div class="cart-item-image">
-                <img src="${item.mango.image}" alt="Mango Image" style="width:100px; height:auto;">
+                <img src="${item.mango.image}" alt="Mango Image">
             </div>
+            <!-- Middle section for Name, Quantity, Price -->
             <div class="cart-item-details">
-                <h4>Name: ${item.mango.name}</h4>
-                <label for="quantity">Quantity:</label>
-                <input type="number" id="quantity" name="quantity" min="1" max="${item.mango?.quantity}" value="1">
-            
-                <p>Price: $<span id="price-${item.id}">${totalPrice}</span></p>
+                <div class="cart-item-info">
+                    <h4>Name: ${item.mango.name}</h4>
+                    <label for="quantity">Quantity:</label>
+                    <input type="number" id="quantity" name="quantity" min="1" max="${item.mango?.quantity}" value="1">
+                    <p>Price: $<span id="price-${item.id}">${totalPrice}</span></p>
+                </div>
+            </div>
+            <!-- Buttons section -->
+            <div class="cart-item-buttons">
                 <button class="details-btn">
-                <a href="mangoDetails.html?mangoId=${item.mango.id}">Details</a>
+                    <a href="mangoDetails.html?mangoId=${item.mango.id}" style="color: white;">Details</a>
                 </button>
                 <button class="buy-now-btn" onclick="buyNowIntoCart('${item.mango.id}', ${item.mango.price}, ${item.mango.quantity}, '${item.id}')">Buy Now</button>
                 <button class="delete-btn" onclick="deleteCartItem('${item.id}')">Delete</button>
@@ -117,6 +117,7 @@ const displayCart = (items) => {
         parent.appendChild(div);
     });
 };
+
 
 function buyNowIntoCart(mangoId, price, maxQuantity, cartItemId) {
     const token = localStorage.getItem("token");

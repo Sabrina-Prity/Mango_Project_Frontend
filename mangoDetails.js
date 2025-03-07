@@ -1,22 +1,4 @@
-const loadcartId = () => {
-    const token = localStorage.getItem("token");
-    // if (!token) {
-    //     alert("Please login");
-    //     return;
-    // }
-    fetch(`https://mango-project-six.vercel.app/add_to_cart/cart_details/${localStorage.getItem("user_id")}/`,{
-        headers: {
-            'Authorization': `Token ${token}`,
-            'Content-Type': 'application/json',
-        },
-    })
-        .then((res) => res.json())
-        .then((data) => {
-            const cartId = data.id;
-            localStorage.setItem("cartId", cartId); 
-        });
-};
-loadcartId();
+
 
 const displayMangosDetails = (mango) => {
     const parent = document.getElementById("mango-details");
@@ -75,24 +57,33 @@ const displayMangosDetails = (mango) => {
 const getparams = () => {
     const param = new URLSearchParams(window.location.search).get("mangoId");
     console.log("Cart Mango Id", param);
+
+    const detailsContainer = document.getElementById("mango-details");
+    const loading = document.getElementById("comment-loading");
+
+    // Show loading image & clear previous details
+    loading.style.display = "block";
+    detailsContainer.innerHTML = "";
+
     fetch(`https://mango-project-six.vercel.app/product/mango/${param}/`)
         .then((res) => res.json())
         .then((data) => {
-            console.log("Cart Details Mango", data);
+            loading.style.display = "none"; // Hide loading image
             displayMangosDetails(data);
+        })
+        .catch((err) => {
+            console.log(err);
+            loading.style.display = "none";
+            detailsContainer.innerHTML = "<p>Error loading mango details. Please try again.</p>";
         });
 };
 
+// Load details on page load
 getparams();
 
+
 const displayComments = (mangoId) => {
-    const token = localStorage.getItem("token");
-    fetch(`https://mango-project-six.vercel.app/product/comment/comments_by_mango/?mango_id=${mangoId}`,{
-        headers: {
-            'Authorization': `Token ${token}`,
-            'Content-Type': 'application/json',
-        }
-})
+    fetch(`https://mango-project-six.vercel.app/product/comment/comments_by_mango/?mango_id=${mangoId}`)
         .then((res) => res.json())
         .then((data) => {
             const commentsList = document.getElementById("comments-list");

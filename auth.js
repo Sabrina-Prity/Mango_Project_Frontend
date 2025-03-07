@@ -96,10 +96,9 @@ const getValue = (id) => {
     return value;
 };
 
-
 const handleLogin = (event) => {
     event.preventDefault();
-    
+
     const username = document.getElementById("login-username").value;
     const password = document.getElementById("login-password").value;
 
@@ -109,7 +108,7 @@ const handleLogin = (event) => {
     if (username && password) {
         fetch("https://mango-project-six.vercel.app/customer/login/", {
             method: "POST",
-            headers: { 
+            headers: {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({ username, password }),
@@ -123,7 +122,11 @@ const handleLogin = (event) => {
                 localStorage.setItem("token", data.token);
                 localStorage.setItem("user_id", data.user_id);
                 localStorage.setItem("is_admin", data.is_admin);
-                window.location.href = "index.html";
+
+                // Call the loadcartId function and wait for it to complete before redirecting
+                loadcartId().then(() => {
+                    window.location.href = "index.html"; // Redirect after cartId is loaded
+                });
             } else {
                 alert("Invalid username or password.");
             }
@@ -137,6 +140,40 @@ const handleLogin = (event) => {
     }
 };
 
+const loadcartId = () => {
+    return new Promise((resolve, reject) => {
+        const token = localStorage.getItem("token");
+        const userId = localStorage.getItem("user_id");
+
+        if (token && userId) {
+            fetch(`https://mango-project-six.vercel.app/add_to_cart/cart_details/${userId}/`, {
+                headers: {
+                    'Authorization': `Token ${token}`,
+                    'Content-Type': 'application/json',
+                },
+            })
+            .then((res) => res.json())
+            .then((data) => {
+                if (data && data.id) {
+                    const cartId = data.id;
+                    localStorage.setItem("cartId", cartId);
+                    console.log("Cart ID loaded:", cartId);
+                    resolve(); // Resolve promise after cartId is set
+                } else {
+                    console.log("No cart found for this user.");
+                    resolve(); // Resolve promise even if no cart is found
+                }
+            })
+            .catch((error) => {
+                console.error("Error loading cart ID:", error);
+                reject(error); // Reject promise on error
+            });
+        } else {
+            console.log("User is not logged in, cannot load cart ID.");
+            resolve(); // Resolve promise even if user is not logged in
+        }
+    });
+};
 
 
 const handlelogOut = () => {

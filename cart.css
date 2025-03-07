@@ -1,106 +1,146 @@
-/* General body styling */
-body {
-  height: 100vh;            /* Full viewport height */
-  font-family: Arial, sans-serif;
-  background-color: #f4f4f9;
-  color: #333;
-  margin: 0;                /* Remove default margin */
-}
+
 
 /* Cart section container */
 #cart-section {
-  width: 50%;    
+  width: 80%;               /* Update the width to 80% */
   margin: auto;
   background: #fff;
   padding: 1rem;
   border-radius: 5px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  margin-top: 50px;
+  margin-top: 100px;
   margin-bottom: 50px;
-  overflow-y: auto;         /* Scroll if the cart has a lot of items */
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
 }
 
 /* Container for each cart item */
 .cart-item-container {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-between;   /* Align items with space between */
   align-items: center;
-  padding: 10px;
   border: 1px solid #ccc;
   margin-bottom: 10px;
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  padding: 10px;
 }
 
 /* Style for the image section */
-.cart-item-image img {
+.cart-item-image {
+  width: 170px;
+  /* flex: 0 0 120px;             Fix the image section width */
   padding: 10px;
-  max-width: 100px;
-  max-height: 100px;
+}
+
+.cart-item-image img {
+  width: 100%;
+  height: auto;
   object-fit: cover;
   border-radius: 8px;
 }
 
-/* Details section for name, quantity, price */
+/* Middle section for Name, Quantity, and Price */
 .cart-item-details {
-  flex-grow: 1;
+  flex-grow: 1;               /* Allow the details section to grow */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   padding-left: 15px;
+}
+
+/* Section for name, quantity, and price */
+.cart-item-info {
+  display: flex;
+  flex-direction: column;      /* Stack Name, Quantity, Price vertically */
+  gap: 5px;                    /* Space between elements */
   text-align: left;
 }
 
-/* Heading and text styling */
-.cart-item-details h4 {
-  font-size: 16px;
-  font-weight: bold;
-  margin: 0;
-  color: #333;
-}
-
-.cart-item-details p {
-  font-size: 14px;
-  color: #555;
-  margin: 5px 0;
-}
-
-.empty-cart {
-  min-height: 200px;
+/* Default for larger screens (buttons side by side) */
+.cart-item-buttons {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
+  flex-direction: row;        /* Align buttons horizontally */
+  gap: 10px;                   /* Space between buttons */
+  justify-content: flex-start; /* Align buttons to the left */
 }
 
-/* Buy Now button styling */
-.buy-now-btn {
-  background-color: #41aa1e;
-  color: white;
-  padding: 10px 15px;
+/* Button styling */
+.buy-now-btn, .delete-btn, .details-btn {
+  height: 50px;
   font-size: 14px;
-  border: none;
+  padding: 5px 10px;
   border-radius: 5px;
   cursor: pointer;
+}
+
+.delete-btn{
+  margin-left: 5px;
   margin-top: 10px;
+}
+.buy-now-btn {
+  background-color: #18634C;
+  color: white;
 }
 
 .buy-now-btn:hover {
   background-color: #448f1e;
 }
 
-
-/* Delete button styling */
 .delete-btn {
   background-color: #f44336;
   color: white;
-  padding: 10px 15px;
-  font-size: 14px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  margin-top: 10px;
-  margin-left: 10px; /* Space between buttons */
 }
 
 .delete-btn:hover {
   background-color: #d32f2f;
+}
+
+.details-btn {
+  background-color: #ffc82f;
+  color: white;
+}
+
+.details-btn:hover {
+  background-color: #45a049;
+}
+
+/* Responsive design for screens smaller than 768px */
+@media (max-width: 768px) {
+  .cart-item-buttons {
+    flex-direction: column;        /* Stack buttons vertically */
+    align-items: center;           /* Center the buttons */
+    gap: 10px;                     /* Maintain space between buttons */
+  }
+}
+
+/* Responsive design for screens smaller than 524px */
+@media (max-width: 524px) {
+  .cart-item-buttons {
+    flex-direction: column;        /* Stack buttons vertically */
+    align-items: center;           /* Center the buttons */
+    gap: 8px;                      /* Slightly reduce space between buttons */
+  }
+
+  .cart-item-image {
+    width: 120px;                  /* Adjust image size for smaller screens */
+  }
+
+  .cart-item-details {
+    padding-left: 10px;            /* Reduce padding */
+  }
+
+  .cart-item-info h4, .cart-item-info p {
+    font-size: 12px;               /* Smaller text for smaller screens */
+  }
+
+  .buy-now-btn, .delete-btn, .details-btn {
+    font-size: 12px;               /* Slightly smaller font size for buttons */
+    padding: 8px 12px;             /* Adjust padding for buttons */
+  }
+  .buy-now-btn{
+    height: 60px;
+  }
 }

@@ -41,43 +41,51 @@ const displayCategory = (data) => {
 
 
 
- const loadMangos = (search) => 
-    {
-    document.getElementById("card").innerHTML = "";
-    fetch(`https://mango-project-six.vercel.app/product/mango/?search=${search ? search : ""}`) 
+const loadMangos = (search) => {
+    const cardContainer = document.getElementById("card");
+    const loading = document.getElementById("loading");
+    const noData = document.getElementById("nodata");
+
+    // Show loading image & hide other sections
+    loading.style.display = "block";
+    cardContainer.innerHTML = "";
+    noData.style.display = "none";
+
+    fetch(`https://mango-project-six.vercel.app/product/mango/?search=${search ? search : ""}`)
         .then((res) => res.json())
-        // .then((data) => console.log(data))
-        .then((data) =>{
-            // console.log(data)
-            if (data.length > 0)
-            {
-                document.getElementById("nodata").style.display = "none";
-                displayMangos(data)
+        .then((data) => {
+            loading.style.display = "none"; // Hide loading image
+
+            if (data.length > 0) {
+                noData.style.display = "none";
+                displayMangos(data);
+            } else {
+                noData.style.display = "block";
             }
-            else{
-                document.getElementById("card").innerHTML = "";
-                document.getElementById("nodata").style.display = "block";
-            }
-        }) 
-        .catch((err) => console.log(err));
+        })
+        .catch((err) => {
+            console.log(err);
+            loading.style.display = "none";
+            noData.style.display = "block";
+        });
 };
+
 
 const displayMangos = (mangos) => {
     const parent = document.getElementById("card");
-    parent.innerHTML = ""; 
+    parent.innerHTML = "";
 
     mangos?.forEach((mango) => {
-        // console.log("Mango", mango)
         const div = document.createElement("div");
         div.classList.add("mango-card");
         div.innerHTML = `
-            <img class="mango-img" src="${mango?.image}" />
+            <img class="mango-img" src="${mango?.image}" alt="${mango?.name}" />
             <h4>${mango?.name}</h4>
             <h6>$${mango?.price}</h6>
-            <button class="details-btn">
-                <a href="mangoDetails.html?mangoId=${mango.id}">Details</a>
-            </button>
         `;
+        div.onclick = () => {
+            window.location.href = `mangoDetails.html?mangoId=${mango.id}`;
+        };
         parent.appendChild(div);
     });
 };

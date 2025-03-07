@@ -107,7 +107,7 @@ form {
 .login-img {
     width: 100%;
     max-width: 500px;
-    margin-top: 20px;
+    margin-top: 60px;
 }
 
 
@@ -119,7 +119,7 @@ form {
 .reg-img{
     width: 100%;
     max-width: 600px;
-    /* margin-top: 20px; */
+    margin-top: 40px;
 }
 .input-group {
     display: flex;

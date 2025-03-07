@@ -27,11 +27,7 @@ fetch("nav_bar.html")
       // Add admin-specific links if the user is an admin
       if (isAdmin) {
         userContainer.innerHTML += `
-          <li class="nav-item"><a class="nav-link" href="add_Mango.html">Product</a></li>
-          <li class="nav-item"><a class="nav-link" href="comments.html">Comments</a></li>
-          <li class="nav-item"><a class="nav-link" href="all_customer.html">Customers</a></li>
-          <li class="nav-item"><a class="nav-link" href="orders.html">Orders</a></li>
-          <li class="nav-item"><a class="nav-link" href="add_category.html">Category</a></li>
+        <li class="nav-item"><a class="nav-link" href="dashboard.html">Dashboard</a></li>
         `;
       }
     } else {
@@ -49,3 +45,10 @@ fetch("nav_bar.html")
   .catch((err) => {
     console.error("Error loading navbar:", err);
   });
+
+
+  // <li class="nav-item"><a class="nav-link" href="add_Mango.html">Product</a></li>
+  //         <li class="nav-item"><a class="nav-link" href="comments.html">Comments</a></li>
+  //         <li class="nav-item"><a class="nav-link" href="all_customer.html">Customers</a></li>
+  //         <li class="nav-item"><a class="nav-link" href="orders.html">Orders</a></li>
+  //         <li class="nav-item"><a class="nav-link" href="add_category.html">Category</a></li>

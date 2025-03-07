@@ -3,19 +3,45 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative; /* Ensures proper positioning */
+  min-height: 400px; /* Adjust this based on content */
+}
+
+.loading {
+  position: absolute; /* Centers loading image */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+  background: rgba(255, 255, 255, 0.8); /* Light overlay for better visibility */
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.loading img {
+  width:350px;
+  height: 300px;
+  padding: 30px;
+  display: block;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 #mango-details {
   background-color: #f9f9f9;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-  width: 100%;
+  padding: 50px;
+  width: 97%;
   position: relative;
 }
 
 .mango-img {
-  width: 700px; /* Ensure it fills the column */
-  height: 370px;
+  width: 500px; /* Ensure it fills the column */
+  height: auto;
   border-radius: 5px;
 }
 
@@ -42,13 +68,14 @@
 
 .details-btn {
   display: inline-block;
-  margin-top: 20px;
+  margin-top: 10px;
   margin-left: 10px;
   padding: 10px 20px;
-  background-color: #ff8c00;
+  background-color: #BE4209;
   color: white;
   text-decoration: none;
   border-radius: 5px;
+  font-size: 15px;
   text-align: center;
 }
 
@@ -58,7 +85,7 @@
 }
 
 .details-btn:hover {
-  background-color: #e07b00;
+  background-color: #e14e0a;
 }
 
 .buy-now-btn {
@@ -68,6 +95,7 @@
   padding: 10px 20px;
   background-color: #28a745;
   color: white;
+  font-size: 15px;
   text-decoration: none;
   border-radius: 5px;
 }
@@ -91,35 +119,7 @@
   color: #BE4209;
 }
 
-/* Responsive Design for Smaller Screens */
-@media (max-width: 768px) {
-  .mango-img {
-      width: 100%; /* Ensure image is full width */
-  }
 
-  .mng-detail {
-      text-align: left;
-      padding-left: 0;
-  }
-}
-
-@media (max-width: 425px) {
-  .mng-detail h4 {
-      font-size: 20px;
-  }
-
-  .mango-detail h6 {
-      font-size: 16px;
-  }
-
-  .mango-detail p {
-      font-size: 14px;
-  }
-
-  .details-btn, .buy-now-btn {
-      width: 100%; /* Make buttons full width */
-  }
-}
 
 
 
@@ -127,18 +127,17 @@
 
 /* Comment Section Styling */
 #comments-section {
-    margin: 30px 0;
-    padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #f9f9f9;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  position: relative;
+    
   }
   
-  #comments-section h3 {
-    font-size: 1.8rem;
-    font-weight: 600;
-    color: #333;
-    margin-bottom: 20px;
+  #comments-section h1 {
+    text-align: center;
+    color: #18634C;
+    font-weight: bold;
   }
   
   /* Comment Form */
@@ -181,7 +180,7 @@
   #comment-form button {
     width: 100%;
     padding: 12px;
-    background-color: #007bff;
+    background-color: #18634C;
     color: #fff;
     border: none;
     border-radius: 8px;
@@ -191,7 +190,7 @@
   }
   
   #comment-form button:hover {
-    background-color: #0056b3;
+    background-color: #1d8667;
   }
   
   /* Login message when not logged in */
@@ -242,3 +241,32 @@
     margin-right: 5px;
   }
   
+/* Responsive Design for Smaller Screens */
+@media (max-width: 768px) {
+  .mango-img {
+      width: 100%; /* Ensure image is full width */
+  }
+
+  .mng-detail {
+      text-align: left;
+      padding-left: 0;
+  }
+}
+
+@media (max-width: 425px) {
+  .mng-detail h4 {
+      font-size: 20px;
+  }
+
+  .mango-detail h6 {
+      font-size: 16px;
+  }
+
+  .mango-detail p {
+      font-size: 14px;
+  }
+
+  .details-btn, .buy-now-btn {
+      width: 100%; /* Make buttons full width */
+  }
+}
