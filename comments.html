@@ -15,9 +15,8 @@
       crossorigin="anonymous">
 
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="login.css">
-    <link rel="stylesheet" href="cart.css">
     <link rel="stylesheet" href="comments.css">
+    <link rel="stylesheet" href="dashboard.css">
     <link rel="icon"
       href="../project_app/templates/project_app/images/logo.jpeg">
 
@@ -38,20 +37,87 @@
 
     <main>
 
+      <!-- Secondary Navbar -->
+      <nav class="top-navbar">
+        <button class="sidebar-toggle" onclick="toggleSidebar()">
+          <i class="fa fa-bars"></i>
+        </button>
 
-
-
-        <!-- Comment Section -->
-    <div id="comments-section">
-      <h1 style="text-align: center; color: #e68551; font-size: 50px; margin-bottom: 20px;" class="title">Comments</h1>
-  
-        
-        <!-- Display existing comments here -->
-        <div id="comments-list">
-          <!-- Comments will be populated here via JavaScript -->
+        <div class="search-box">
+          <input type="text" placeholder="Search...">
         </div>
-    </div>
 
+        <button class="profile-btn"
+          onclick="window.location.href='profile.html'">
+          <img src="Images/cover.jpg" alt="Profile">
+        </button>
+      </nav>
+
+      <!-- Sidebar -->
+      <div class="sidebar" id="sidebar">
+        <a href="dashboard.html"><i class="fa fa-home"></i> Dashboard</a>
+        <a href="add_Mango.html"><i class="fa fa-box"></i> Add Product</a>
+        <a href="comments.html"><i class="fa fa-comments"></i> View
+          Comments</a>
+        <a href="all_customer.html"><i class="fa fa-users"></i> All
+          Customers</a>
+        <a href="orders.html"><i class="fa fa-shopping-cart"></i> Manage
+          Orders</a>
+        <a href="add_category.html"><i class="fa fa-list"></i> Add
+          Category</a>
+        <a href="all_product.html"><i class="fa fa-list"></i> All Product</a>
+      </div>
+
+      <!-- Main Content -->
+      <div class="content">
+        <main>
+
+          <!-- Comment Section -->
+          <div id="comments-section">
+            <h1
+              style="text-align: center; color: #e68551; font-size: 50px; margin-bottom: 20px;"
+              class="title">Comments</h1>
+
+            <!-- Display existing comments here -->
+            <div id="comments-list">
+              <!-- Comments will be populated here via JavaScript -->
+            </div>
+          </div>
+
+        </main>
+      </div>
+
+      <script>
+      // Function to toggle the sidebar
+         
+      function toggleSidebar() {
+          var sidebar = document.getElementById("sidebar");
+          if (!sidebar) return; // Ensure sidebar exists
+
+          var isOpen = sidebar.classList.toggle("open");
+
+          // Store sidebar state in localStorage
+          localStorage.setItem("sidebarOpen", isOpen ? "true" : "false");
+      }
+
+      // Function to check and restore sidebar state on page load
+      function restoreSidebarState() {
+          var sidebar = document.getElementById("sidebar");
+
+          if (!sidebar) return; // Ensure sidebar exists before applying state
+
+          var sidebarState = localStorage.getItem("sidebarOpen");
+
+          if (sidebarState === "true") {
+              sidebar.classList.add("open");
+          }
+      }
+
+      // Restore sidebar state when the page loads
+      document.addEventListener("DOMContentLoaded", restoreSidebarState);
+
+
+  </script>
 
     </main>
 
@@ -61,14 +127,19 @@
         <div class="col-md-3">
           <h5>Follow Us</h5>
           <div class="icons">
-            <a href="#" aria-label="Facebook" title="Facebook"><i class="fa-brands fa-facebook"></i></a>
-            <a href="#" aria-label="Email" title="Email"><i class="fa-solid fa-envelope"></i></a>
-            <a href="#" aria-label="WhatsApp" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
-            <a href="#" aria-label="Instagram" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
-            <a href="#" aria-label="Twitter" title="Twitter"><i class="fa-brands fa-square-twitter"></i></a>
+            <a href="#" aria-label="Facebook" title="Facebook"><i
+                class="fa-brands fa-facebook"></i></a>
+            <a href="#" aria-label="Email" title="Email"><i
+                class="fa-solid fa-envelope"></i></a>
+            <a href="#" aria-label="WhatsApp" title="WhatsApp"><i
+                class="fa-brands fa-whatsapp"></i></a>
+            <a href="#" aria-label="Instagram" title="Instagram"><i
+                class="fa-brands fa-instagram"></i></a>
+            <a href="#" aria-label="Twitter" title="Twitter"><i
+                class="fa-brands fa-square-twitter"></i></a>
           </div>
         </div>
-    
+
         <!-- About Sweet Haven Section -->
         <div class="col-md-3">
           <h5>About Sweet Haven</h5>
@@ -79,7 +150,7 @@
             <li><a href="#" title="Sustainability">Sustainability</a></li>
           </ul>
         </div>
-    
+
         <!-- Explore Mango Categories -->
         <div class="col-md-3">
           <h5>Explore Mangoes</h5>
@@ -90,24 +161,26 @@
             <li><a href="#" title="Gopalbogh Mangoes">Gopalbogh Mangoes</a></li>
           </ul>
         </div>
-    
+
         <!-- Customer Support Section -->
         <div class="col-md-3">
           <h5>Customer Support</h5>
           <ul>
             <li><a href="#" title="FAQs">FAQs</a></li>
             <li><a href="#" title="Contact Us">Contact Us</a></li>
-            <li><a href="#" title="Shipping & Delivery">Shipping & Delivery</a></li>
+            <li><a href="#" title="Shipping & Delivery">Shipping &
+                Delivery</a></li>
             <li><a href="#" title="Return Policy">Return Policy</a></li>
             <li><a href="#" title="Report an Issue">Report an Issue</a></li>
           </ul>
         </div>
       </div>
-    
+
       <!-- Footer Bottom Section -->
       <hr>
       <p class="text-center text-white mt-3">
-        <small>Copyright 2024 © Sweet Haven. All Rights Reserved | Designed with ❤ for Mango Lovers</small>
+        <small>Copyright 2024 © Sweet Haven. All Rights Reserved | Designed with
+          ❤ for Mango Lovers</small>
       </p>
     </footer>
     <!-- Script file cdn -->
@@ -126,6 +199,5 @@
       src="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/js/swiffy-slider.min.js"
       crossorigin="anonymous" defer></script>
 
-    
   </body>
 </html>

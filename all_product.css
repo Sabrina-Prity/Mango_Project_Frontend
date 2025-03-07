@@ -1,0 +1,79 @@
+
+/* Display All Mango From Add_Mango */
+
+.display-all-product {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.display-all-product h2 {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 2rem;
+    color: #333;
+}
+
+/* Styling for each mango item */
+.mango-item {
+    width: 100%;
+    max-width: 250px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    padding: 10px;
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+.mango-item:hover {
+    transform: scale(1.05);
+}
+
+.mango-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.mango-item p {
+    font-size: 1rem;
+    color: #555;
+    margin: 10px 0;
+}
+
+.mango-item button {
+    background-color: #ff4b5c;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+}
+
+.mango-item button:hover {
+    background-color: #ff2b3a;
+}
+
+/* Handling cases for small screens */
+@media (max-width: 768px) {
+    .mango-item {
+        /* max-width: calc(33.33% - 20px);  */
+        max-width: calc(50% - 20px); 
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 425px) {
+    .mango-item {
+        max-width: 100%; 
+        margin-bottom: 20px;
+    }
+}

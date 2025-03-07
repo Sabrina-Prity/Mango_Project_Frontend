@@ -1,5 +1,5 @@
 const displayComments = () => {
-    fetch("https://mango-project-six.vercel.app/product/comment/")
+    fetch("https://mango-project-six.vercel.app/product/all_comment/")
         .then((res) => res.json())
         .then((data) => {
             const commentsList = document.getElementById("comments-list");
