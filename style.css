@@ -380,11 +380,12 @@ body {
 
 
 footer h5 {
-    font-size: 20px;
+    font-size: 25px;
     font-weight: 300;
     margin-bottom: 15px;
-    color: #201a1a;
+    color: #b4f5e2;
     text-align: center;
+    font-weight: bold;
 }
 
 footer ul {
@@ -434,7 +435,7 @@ footer p {
 }
 
 footer p small {
-    color: #ffffff;
+    color: #b4f5e2;
 }
 
 footer {
