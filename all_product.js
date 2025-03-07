@@ -1,5 +1,10 @@
 const fetchMango = () => {
     const token = localStorage.getItem("token");
+    
+    // Show the loading spinner before the fetch request
+    const container = document.getElementById("display-all-product");
+    container.innerHTML = "<img src='Images/loading.jpg' alt='Loading...' style='width: 160px; height: auto; display: block; margin-top: 50px;' />";
+
     fetch('https://mango-project-six.vercel.app/product/mango/', {
         method: 'GET',
         headers: {
@@ -9,7 +14,7 @@ const fetchMango = () => {
     })
         .then((response) => response.json())
         .then((mangos) => {
-            const container = document.getElementById("display-all-product");
+            // Clear the container when data is fetched
             container.innerHTML = "<h2>All Mango Items</h2>";
 
             if (mangos.length === 0) {
@@ -32,11 +37,12 @@ const fetchMango = () => {
                 });
             }
         })
-        // .catch((error) => {
-        //     console.error('Error:', error);
-        //     document.getElementById("error").innerText = "Error fetching mango items.";
-        // });
+        .catch((error) => {
+            console.error('Error:', error);
+            document.getElementById("error").innerText = "Error fetching mango items.";
+        });
 };
+
 
 
 const deleteMango = (id) => {

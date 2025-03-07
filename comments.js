@@ -1,14 +1,18 @@
 const displayComments = () => {
+    const commentsList = document.getElementById("comments-list");
+    
+    // Show the loading image before the fetch request
+    commentsList.innerHTML = "<img src='Images/loading.jpg' alt='Loading...' style='width: 160px; height: auto; display: block; margin: auto;' />";
+    
     fetch("https://mango-project-six.vercel.app/product/all_comment/")
         .then((res) => res.json())
         .then((data) => {
-            const commentsList = document.getElementById("comments-list");
+            // Clear the loading image and process the fetched data
             commentsList.innerHTML = '';
 
             if (data.length === 0) {
-                commentsList.innerHTML += "<p style='font-size:25px; color:gray; text-align:center; margin-top:20px;'>No comments found!</p>"; 
-            } 
-            else {
+                commentsList.innerHTML += "<p style='font-size:25px; color:gray; text-align:center; margin-top:20px;'>No comments found!</p>";
+            } else {
                 data.forEach((comment) => {
                     const commentDiv = document.createElement("div");
                     commentDiv.classList.add("comment");
@@ -31,6 +35,7 @@ const displayComments = () => {
             document.getElementById("error").innerText = "Error fetching comments.";
         });
 };
+
 
 
 const deleteComment = (commentId) => {

@@ -1,10 +1,9 @@
 const handleCustomerList = () => {
     const token = localStorage.getItem("token");
 
-    // if (!token) {
-    //     alert("You need to log in to view your account!");
-    //     return;
-    // }
+    // Show the loading image before the fetch request
+    const parent = document.getElementById("cart-section");
+    parent.innerHTML = "<img src='Images/loading.jpg' alt='Loading...' style='width: 160px; height: auto; display: block; margin: auto;' />";
 
 
     fetch('https://mango-project-six.vercel.app/customer/customer-list/', {
