@@ -12,7 +12,7 @@ body {
     top: 0;
     left: 0;
     z-index: 1001;
-    
+
 }
 
 /* Top Navbar (Secondary Navbar) */
@@ -22,7 +22,8 @@ body {
     background-color: #2d2f39;
     padding: 15px 20px;
     position: fixed;
-    top: 60px; /* Moves below the main navbar */
+    top: 60px;
+    /* Moves below the main navbar */
     left: 0;
     display: flex;
     align-items: center;
@@ -79,13 +80,14 @@ body {
 /* Main Content */
 .content {
     margin-left: 20px;
-    margin-top: 160px; /* Adjust for two navbars */
+    margin-top: 160px;
+    /* Adjust for two navbars */
     padding: 20px;
     transition: margin-left 0.3s ease-in-out;
 }
 
 /* Adjust Content when Sidebar is Open */
-.sidebar.open ~ .content {
+.sidebar.open~.content {
     margin-left: 270px;
 }
 
@@ -110,10 +112,224 @@ body {
     border-radius: 50%;
 }
 
+/* General Content Styles */
+.content {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+}
 
+.title {
+    text-align: center;
+    color: #18634C;
+    font-size: 40px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    margin-top: 30px;
+}
 
-@media screen and (max-width: 768px) {
-    .search-box {
-        display: none;
+/* Overview Section Styles */
+.over-view {
+    display: flex;
+    justify-content: space-between; 
+    gap: 20px; 
+    width: 100%;
+    margin: auto;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+}
+
+/* Pie Chart Styles */
+:root {
+    --color-good: #4caf50;   
+    --color-average: #ff9800; 
+    --color-bad: #f44336;     
+}
+
+.pie-chart-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    margin: auto;
+}
+
+.pie-chart {
+    /* margin-left: 100px; */
+    width: 80%;
+    height: 80%;
+    background: conic-gradient(
+        var(--color-bad) 0deg 20deg,         
+        var(--color-average) 20deg 140deg,   
+        var(--color-good) 140deg 360deg      
+    );
+    border-radius: 50%;
+    position: absolute;
+    
+}
+
+.center-circle {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background-color: #fff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* margin-left: 100px; */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.total{
+    margin-left: 10px;
+}
+.pie-label {
+    text-align: center;
+}
+
+.pie-label .total {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.pie-label .sub-text {
+    font-size: 1rem;
+    color: #777;
+}
+
+.card-footer {
+    font-size: 0.875rem;
+    text-align: center;
+}
+
+.footer-text {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.footer-subtext {
+    color: #777;
+}
+
+/* Bar Chart Styles */
+.chart-container {
+    width: 60%;
+    margin: 0 auto;
+    text-align: center;
+    padding: 20px;
+    box-shadow: 1px 1px 3px 1px rgba(181, 177, 177, 0.369);
+    background-color: #fff;
+    border-radius: 8px;
+}
+
+.chart-container h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.chart {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 10px;
+    height: 300px;
+    padding: 20px;
+    position: relative;
+    
+}
+
+.bar {
+    width: 40px;
+    background-color: #4CAF50;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    margin-bottom: -40px;
+}
+
+.bar:hover {
+    background-color: #45a049;
+}
+
+.label {
+    position: absolute;
+    bottom: -25px;
+    color: #000000;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.value {
+    position: absolute;
+    top: -25px;
+    color: #18634C;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/* Total Stats Section Styles */
+.total {
+    display: flex;
+    justify-content: space-between;
+}
+
+.total-customer, .total-order {
+    width: 48%;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.stats {
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+
+    .pie-chart {
+        /* margin-left: 100px; */
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        margin-left: -60px;
+        
+    }
+    .pie-chart-container {
+        width: 250px;
+        height: 200px;
+    }
+
+    .center-circle {
+        width: 80px;
+        height: 80px;
+        margin-left: -60px;
+    }
+}
+
+@media (max-width: 425px) {
+    .pie-chart-container {
+        width: 180px;
+        height: 180px;
+    }
+
+    .center-circle {
+        width: 70px;
+        height: 70px;
     }
 }

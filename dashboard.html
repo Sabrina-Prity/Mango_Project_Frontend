@@ -68,8 +68,95 @@
 
         <!-- Main Content -->
         <div class="content">
-            <h2>Welcome to Admin Dashboard</h2>
-            <p>Manage your products, orders, and customers here.</p>
+            <h1
+                style="text-align: center; color: #18634C; font-size: 40px; font-weight: bold; margin-bottom: 20px; margin-top: 30px;"
+                class="title">Welcome to Admin Dashboard</h1>
+
+            <div class="over-view container row">
+                <!-- Pie Chart Section -->
+                <div class="card col-md-4">
+                    <div class="card-header">
+                        <div class="card-title">Review Pie Chart</div>
+                        <div class="card-description">Good, Average, and Bad
+                            Reviews</div>
+                    </div>
+
+                    <div class="card-content">
+                        <div class="pie-chart-container">
+                            <div class="pie-chart"></div>
+
+                            <!-- White Circle in the Center -->
+                            <div class="center-circle">
+                                <div class="pie-label">
+                                    <div class="total">150</div>
+                                    <div class="sub-text">Reviews</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-footer">
+                        <div class="footer-text">Good reviews: 60%, Average:
+                            30%, Bad: 10%</div>
+                        <div class="footer-subtext">Based on the last 150
+                            reviews</div>
+                    </div>
+                </div>
+
+                <div class="profit chart-container col-md-8">
+                    <h2>Monthly Profit</h2>
+                    <div class="chart">
+                        <div class="bar" style="height: 200px;"
+                            data-label="January">
+                            <span class="label">January</span>
+                            <span class="value">$18600</span>
+                        </div>
+                        <div class="bar" style="height: 250px;"
+                            data-label="February">
+                            <span class="label">February</span>
+                            <span class="value">$30500</span>
+                        </div>
+                        <div class="bar" style="height: 255px;"
+                            data-label="March">
+                            <span class="label">March</span>
+                            <span class="value">$23700</span>
+                        </div>
+                        <div class="bar" style="height: 210px;"
+                            data-label="April">
+                            <span class="label">April</span>
+                            <span class="value">$7300</span>
+                        </div>
+                        <div class="bar" style="height: 300px;"
+                            data-label="May">
+                            <span class="label">May</span>
+                            <span class="value">$20900</span>
+                        </div>
+                        <div class="bar" style="height: 290px;"
+                            data-label="June">
+                            <span class="label">June</span>
+                            <span class="value">$21400</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- <div class="total row">
+                Total Customers Section
+                <div class="total-customer col-md-6">
+                    <h3>Total Customers</h3>
+                    <div class="stats">
+                        <p id="total-customers">150</p>
+                    </div>
+                </div>
+
+                Total Orders Section
+                <div class="total-order col-md-6">
+                    <h3>Total Orders</h3>
+                    <div class="stats">
+                        <p id="total-orders">350</p>
+                    </div>
+                </div>
+            </div> -->
         </div>
 
         <script>
