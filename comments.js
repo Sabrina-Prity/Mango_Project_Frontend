@@ -9,7 +9,7 @@ const displayComments = () => {
         .then((data) => {
             // Clear the container and add a title
             commentsList.innerHTML = `
-                <h1 style="text-align: center; color: #18634C; font-size: 40px; font-weight: bold; margin-top: 30px;" class="title">Comments</h1>
+                <h1 style="text-align: center; color: #18634C; font-size: 40px; font-weight: bold;margin-top: -30px;" class="title">Comments</h1>
             `;
 
             if (data.length === 0) {

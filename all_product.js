@@ -16,7 +16,7 @@ const fetchMango = () => {
         .then((mangos) => {
             // Clear the container and add table structure
             container.innerHTML = `
-                <h1 style="text-align: center; color: #18634C; font-size: 40px; font-weight: bold; margin-top: 30px;" class="title">All Mango Items</h1>
+                <h1 style="text-align: center; color: #18634C; font-size: 40px; font-weight: bold; margin-top: -30px; margin-bottom:-10px;" class="title">All Mango Items</h1>
             `;
 
             if (mangos.length === 0) {

@@ -28,7 +28,7 @@ const displayCustomerList = (items) => {
 
     // Clear the container and add a title
     parent.innerHTML = `
-                <h1 style="text-align: center; color: #18634C; font-size: 40px; font-weight: bold; margin-top: 30px;" class="title">All Mango Items</h1>
+                <h1 style="text-align: center; color: #18634C; font-size: 40px; font-weight: bold;" class="title">All Customer</h1>
             `;
 
     if (items.length === 0) {

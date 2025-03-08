@@ -61,11 +61,24 @@ body {
     padding: 15px;
     color: white;
     text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar a:hover,
+.sidebar a.active { /* Active link styling */
+    background-color: #18634C;
+}
+
+/* .sidebar a {
+    display: block;
+    padding: 15px;
+    color: white;
+    text-decoration: none;
 }
 
 .sidebar a:hover {
-    background-color: #007bff;
-}
+    background-color: #18634C;
+} */
 
 /* Sidebar Toggle Button */
 .sidebar-toggle {
@@ -94,7 +107,7 @@ body {
 /* Search Box */
 .search-box input {
     padding: 8px;
-    width: 200px;
+    width: 400px;
     border-radius: 5px;
     border: none;
 }
@@ -301,6 +314,10 @@ body {
 
 /* Responsive Styles */
 @media (max-width: 768px) {
+
+    .search-box {
+        display: none;
+    }
 
     .pie-chart {
         /* margin-left: 100px; */
