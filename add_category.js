@@ -11,6 +11,7 @@ const handleAddCategory = (event) => {
     })
         .then((response) => response.json())
         .then((data) => {
+
             console.log("Category Data",data)
             if (data.id) {
                 console.log("Category id",data.id)

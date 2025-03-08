@@ -3,7 +3,7 @@ const fetchMango = () => {
     
     // Show the loading spinner before the fetch request
     const container = document.getElementById("display-all-product");
-    container.innerHTML = "<img src='Images/loading.jpg' alt='Loading...' style='width: 160px; height: auto; display: block; margin-top: 50px;' />";
+    container.innerHTML = "<img src='Images/loading.jpg' alt='Loading...' style='width: 160px; height: auto; display: block; margin-top: 50px; margin-left: auto; margin-right: auto;' />";
 
     fetch('https://mango-project-six.vercel.app/product/mango/', {
         method: 'GET',
@@ -14,34 +14,59 @@ const fetchMango = () => {
     })
         .then((response) => response.json())
         .then((mangos) => {
-            // Clear the container when data is fetched
-            container.innerHTML = "<h2>All Mango Items</h2>";
+            // Clear the container and add table structure
+            container.innerHTML = `
+                <h1 style="text-align: center; color: #18634C; font-size: 40px; font-weight: bold; margin-top: 30px;" class="title">All Mango Items</h1>
+            `;
 
             if (mangos.length === 0) {
                 container.innerHTML += "<p style='font-size:25px; color:gray; text-align:center; margin-top:20px;'>No mango found!</p>";
             } else {
-                mangos.forEach((mango) => {
-                    const div = document.createElement("div");
-                    div.classList.add("mango-item");
+                let table = `
+                    <table border="1" style="width: 100%; border-collapse: collapse; text-align: center; margin-top: 20px;">
+                        <thead>
+                            <tr style="background-color: #18634C; color: white;">
+                                <th style="padding: 10px;">Image</th>
+                                <th style="padding: 10px;">Name</th>
+                                <th style="padding: 10px;">Price</th>
+                                <th style="padding: 10px;">Quantity</th>
+                                <th style="padding: 10px;">Category</th>
+                                <th style="padding: 10px;">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                `;
 
-                    // Ensure the mango object has the necessary properties
-                    div.innerHTML = `
-                        <img src="${mango.image}" alt="${mango.name}" />
-                        <p>${mango.name}</p>
-                        <p>Price: $${mango.price}</p>
-                        <p>Quantity: ${mango.quantity}</p>
-                        <p>Category: ${mango.category}</p>
-                        <button class="delete-btn" onclick="deleteMango(${mango.id})">Delete</button>
+                mangos.forEach((mango) => {
+                    table += `
+                        <tr>
+                            <td style="padding: 10px;">
+                                <img src="${mango.image}" alt="${mango.name}" style="width: 80px; height: auto;" />
+                            </td>
+                            <td style="padding: 10px;">${mango.name}</td>
+                            <td style="padding: 10px;">$${mango.price}</td>
+                            <td style="padding: 10px;">${mango.quantity}</td>
+                            <td style="padding: 10px;">${mango.category}</td>
+                            <td style="padding: 10px;">
+                                <button class="delete-btn" style="background-color: red; color: white; border: none; padding: 5px 10px; cursor: pointer;" 
+                                    onclick="deleteMango(${mango.id})">
+                                    Delete
+                                </button>
+                            </td>
+                        </tr>
                     `;
-                    container.appendChild(div);
                 });
+
+                table += `</tbody></table>`;
+                container.innerHTML += table;
             }
         })
         .catch((error) => {
             console.error('Error:', error);
-            document.getElementById("error").innerText = "Error fetching mango items.";
+            container.innerHTML = "<p style='color: red; text-align: center; margin-top: 20px;'>Error fetching mango items.</p>";
         });
 };
+
 
 
 

@@ -3,7 +3,7 @@ const handleCustomerList = () => {
 
     // Show the loading image before the fetch request
     const parent = document.getElementById("cart-section");
-    parent.innerHTML = "<img src='Images/loading.jpg' alt='Loading...' style='width: 160px; height: auto; display: block; margin: auto;' />";
+    parent.innerHTML = "<img src='Images/loading.jpg' alt='Loading...' style='width: 160px; height: auto; display: block; margin-top: 50px; margin-left: auto; margin-right: auto;' />";
 
 
     fetch('https://mango-project-six.vercel.app/customer/customer-list/', {
@@ -24,42 +24,54 @@ const handleCustomerList = () => {
 };
 
 const displayCustomerList = (items) => {
-    // console.log("Items", items); 
     const parent = document.getElementById("cart-section");
-    parent.innerHTML = `<h2 class="title" style="color: #e68551;">Customer List</h2>`;
+
+    // Clear the container and add a title
+    parent.innerHTML = `
+                <h1 style="text-align: center; color: #18634C; font-size: 40px; font-weight: bold; margin-top: 30px;" class="title">All Mango Items</h1>
+            `;
 
     if (items.length === 0) {
-        parent.innerHTML += "<p>Empty Customer List!</p>";
-    } else {
-        parent.innerHTML += `<p>Total Customers: ${items.length}</p>`;
+        parent.innerHTML += "<p style='text-align:center; font-size:18px; color:gray;'>Empty Customer List!</p>";
+        return;
     }
 
+    // Create a table to display customer details
+    let table = `
+        <p style="text-align:center; font-size:18px; font-weight:bold; color:#333;">Total Customers: ${items.length}</p>
+        <table border="1" style="width: 90%; border-collapse: collapse; text-align: center; margin: auto;">
+            <thead>
+                <tr style="background-color: #18634C; color: white;">
+                    <th style="padding: 10px;">Image</th>
+                    <th style="padding: 10px;">Name</th>
+                    <th style="padding: 10px;">Mobile</th>
+                    <th style="padding: 10px;">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+    `;
+
     items.forEach((item) => {
-        // console.log("Item", item); 
-
-        const div = document.createElement("div");
-        div.classList.add("cart-item");
-        
-
-        div.innerHTML = `
-            <div class="cart-item-container">
-                <div class="cart-item-image">
-                    <img src="${item.image}" alt="Customer Image" style="width:100px; height:auto;">
-                </div>
-                <div class="cart-item-details">
-                    <h4>Name: ${item.user}</h4>
-                    <h6>Mobile: ${item.mobile_no}</h6>
-                    <button class="details-btn">
-                <a href="#">Details</a>
-                
-                </button>
-                </div>
-            </div>
+        table += `
+            <tr>
+                <td style="padding: 10px; ">
+                    <img src="${item.image}" alt="Customer Image" style="width: 80px; height: 60px; ">
+                </td>
+                <td style="padding: 10px;">${item.user}</td>
+                <td style="padding: 10px;">${item.mobile_no}</td>
+                <td style="padding: 10px;">
+                    <a href="#" class="details-btn" style="background-color: #BE4209; color: white; padding: 5px 10px; text-decoration: none; border-radius: 5px;">
+                        Details
+                    </a>
+                </td>
+            </tr>
         `;
-
-        parent.appendChild(div);
     });
+
+    table += `</tbody></table>`;
+    parent.innerHTML += table;
 };
+
 
 // const handleSearch = (event) =>{
 //     event.preventDefault();
