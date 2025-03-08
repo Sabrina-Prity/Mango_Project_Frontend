@@ -107,6 +107,11 @@
   background-color: #45a049;
 }
 
+.loading-image{
+  width: 200px;
+  height: auto;
+  margin: auto;
+}
 /* Responsive design for screens smaller than 768px */
 @media (max-width: 768px) {
   .cart-item-buttons {

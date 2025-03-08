@@ -49,6 +49,11 @@ const loadCartProduct = () => {
     }
     const token = localStorage.getItem("token");
 
+    const parent = document.getElementById("cart-section");
+    parent.innerHTML = `
+        <img src="Images/loading.jpg" alt="Loading..." class="loading-image">
+        
+    `;
     
     fetch(`https://mango-project-six.vercel.app/add_to_cart/cart_products/${cartId}/`,
         {

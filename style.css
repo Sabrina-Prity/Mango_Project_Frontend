@@ -850,6 +850,14 @@ footer {
         flex-direction: column;
     }
 
+    .footer h5 {
+        font-size: 18px;
+    }
+
+    footer li a {
+        font-size: 13px;
+    }
+
 }
 
 /* Additional Styles for Very Small Screens (425px width) */
