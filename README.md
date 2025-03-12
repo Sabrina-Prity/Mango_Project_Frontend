@@ -1,10 +1,10 @@
 <div align="center">
-  <img src="https://github.com/Sabrina-Prity/Mango_Project_Frontend/blob/main/Images/cover-image.png" />
+  <img src="https://github.com/Sabrina-Prity/Mango_Project_Frontend/blob/main/Images/Cover-2.png" />
 </div>
 
-# 🥭 Mango Selling App - Frontend
+# 🥭 Sweet Haven - Frontend
 
-Welcome to **Mango Selling App** – an online marketplace that connects mango farmers and customers. This platform allows users to browse, order, and purchase fresh mangoes online while also enabling sellers to list and manage their mango sales. This repository contains the **frontend** of the project, built with **HTML, CSS, and JavaScript**.
+Welcome to **Sweet Haven** – an online marketplace that connects mango farmers and customers. This platform allows users to browse, order, and purchase fresh mangoes online while also enabling sellers to list and manage their mango sales. This repository contains the **frontend** of the project, built with **HTML, CSS, and JavaScript**.
 
 ## 🛠️ Key Features
 ### For Customers:
