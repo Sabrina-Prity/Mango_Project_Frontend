@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="https://github.com/Sabrina-Prity/Mango_Project_Frontend/blob/main/Images/Cover-2.png" />
+  <img src="https://github.com/Sabrina-Prity/Mango_Project_Frontend/blob/main/Images/Cover-4.png" />
 </div>
 
 # 🥭 Sweet Haven - Frontend
