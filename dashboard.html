@@ -164,13 +164,16 @@
            
         function toggleSidebar() {
             var sidebar = document.getElementById("sidebar");
-            if (!sidebar) return; // Ensure sidebar exists
-
             var isOpen = sidebar.classList.toggle("open");
 
-            // Store sidebar state in localStorage
+            // Adjust content margin only for large screens
+            if (window.innerWidth > 768) {
+                document.querySelector('.content').style.marginLeft = isOpen ? '270px' : '20px';
+            }
+
             localStorage.setItem("sidebarOpen", isOpen ? "true" : "false");
         }
+
 
         // Function to check and restore sidebar state on page load
         function restoreSidebarState() {

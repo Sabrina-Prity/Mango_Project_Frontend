@@ -12,7 +12,6 @@ body {
     top: 0;
     left: 0;
     z-index: 1001;
-
 }
 
 /* Top Navbar (Secondary Navbar) */
@@ -23,7 +22,6 @@ body {
     padding: 15px 20px;
     position: fixed;
     top: 60px;
-    /* Moves below the main navbar */
     left: 0;
     display: flex;
     align-items: center;
@@ -33,29 +31,27 @@ body {
     color: white;
 }
 
-
 /* Sidebar Default State */
 .sidebar {
     position: fixed;
     left: -250px;
-    top: 140px;
+    top: 160px;
     width: 250px;
-    height: calc(100vh - 140px);
+    height: 100%;
+    /* height: calc(100vh - 140px); */
     background-color: #1e1f26;
     transition: left 0.3s ease-in-out;
     padding-top: 20px;
+    z-index: 1000;
 }
 
 /* Keep Sidebar Open if LocalStorage Saves it */
-.sidebar[data-state="open"] {
-    left: 0;
-}
-
-
+.sidebar[data-state="open"],
 .sidebar.open {
     left: 0;
 }
 
+/* Sidebar Links */
 .sidebar a {
     display: block;
     padding: 15px;
@@ -65,20 +61,9 @@ body {
 }
 
 .sidebar a:hover,
-.sidebar a.active { /* Active link styling */
+.sidebar a.active { 
     background-color: #18634C;
 }
-
-/* .sidebar a {
-    display: block;
-    padding: 15px;
-    color: white;
-    text-decoration: none;
-}
-
-.sidebar a:hover {
-    background-color: #18634C;
-} */
 
 /* Sidebar Toggle Button */
 .sidebar-toggle {
@@ -94,14 +79,16 @@ body {
 .content {
     margin-left: 20px;
     margin-top: 160px;
-    /* Adjust for two navbars */
     padding: 20px;
     transition: margin-left 0.3s ease-in-out;
 }
 
 /* Adjust Content when Sidebar is Open */
-.sidebar.open~.content {
-    margin-left: 270px;
+@media (min-width: 769px) {
+
+    .sidebar.open ~ .content {
+        margin-left: 270px;
+    }
 }
 
 /* Search Box */
@@ -143,8 +130,9 @@ body {
 /* Overview Section Styles */
 .over-view {
     display: flex;
-    justify-content: space-between; 
-    gap: 20px; 
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
     width: 100%;
     margin: auto;
 }
@@ -157,6 +145,31 @@ body {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     background-color: #fff;
 }
+
+.pie-chart-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;  /* Make it responsive */
+    max-width: 250px;  /* Prevent it from getting too large */
+    height: auto;
+    margin: auto;
+}
+
+.pie-chart {
+    width: 80%;
+    max-width: 200px; /* Ensures it scales down */
+    height: auto;
+    aspect-ratio: 1/1; /* Keeps it a perfect circle */
+    background: conic-gradient(
+        var(--color-bad) 0deg 20deg,         
+        var(--color-average) 20deg 140deg,   
+        var(--color-good) 140deg 360deg      
+    );
+    border-radius: 50%;
+    position: relative;
+}
+
 
 /* Pie Chart Styles */
 :root {
@@ -177,7 +190,6 @@ body {
 }
 
 .pie-chart {
-    /* margin-left: 100px; */
     width: 80%;
     height: 80%;
     background: conic-gradient(
@@ -187,7 +199,6 @@ body {
     );
     border-radius: 50%;
     position: absolute;
-    
 }
 
 .center-circle {
@@ -199,13 +210,13 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    /* margin-left: 100px; */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.total{
+.total {
     margin-left: 10px;
 }
+
 .pie-label {
     text-align: center;
 }
@@ -260,7 +271,6 @@ body {
     height: 300px;
     padding: 20px;
     position: relative;
-    
 }
 
 .bar {
@@ -312,41 +322,77 @@ body {
     font-weight: bold;
 }
 
-/* Responsive Styles */
-@media (max-width: 768px) {
 
-    .search-box {
-        display: none;
+
+
+
+/* Responsive Sidebar Behavior */
+@media (max-width: 768px) {
+    .top-navbar {
+        margin-top: -11px;
+        
+    }
+    .search-box input {
+        width: 200px;
+    }
+    
+    /* Sidebar Default State */
+    .sidebar {
+        margin-top: -32px;
+    }
+    
+    .sidebar {
+        width: 250px;
+        left: -250px;
+    }
+
+    .sidebar.open {
+        left: 0;
+    }
+
+    .content {
+        margin-left: 0 !important;
+    }
+
+    .pie-chart-container {
+        width: 200px;     /* Fixed width */
+        height: 200px;    /* Fixed height */
+        border-radius: 50%;
+        margin: auto;
     }
 
     .pie-chart {
-        /* margin-left: 100px; */
-        width: 150px;
-        height: 150px;
-        border-radius: 50%;
-        margin-left: -60px;
-        
+        width: 100%;      /* Fill the container */
+        height: 100%;     /* Fill the container */
     }
-    .pie-chart-container {
-        width: 250px;
-        height: 200px;
+    .chart-container {
+        width: 60%;
+       
     }
 
-    .center-circle {
-        width: 80px;
-        height: 80px;
-        margin-left: -60px;
-    }
 }
 
-@media (max-width: 425px) {
-    .pie-chart-container {
-        width: 180px;
-        height: 180px;
+@media (max-width: 430px) {
+    
+    .sidebar {
+        width: 100%;
+        left: -100%;
     }
 
-    .center-circle {
-        width: 70px;
-        height: 70px;
+    .sidebar.open {
+        left: 0;
+    }
+
+    /* Hide content when sidebar is open */
+    .sidebar.open ~ .content,
+    .sidebar.open ~ .top-navbar {
+        display: none;
+    }
+
+    .chart-container {
+        width: 100%;
+    }
+    .bar{
+        width: 30px;
     }
 }

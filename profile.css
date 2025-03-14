@@ -4,12 +4,16 @@ body {
     background-color: #f9f9f9;
     margin: 0;
     padding: 0;
-    /* display: flex; */
-    /* justify-content: center; */
-    /* align-items: center; */
-    height: 100vh;
+    
   }
   
+  .customer-loading{
+    margin-top: 300px;
+    text-align: center;
+  }
+  .customer-profile{
+    min-height: 50vh;
+  }
   /* Customer Card Styles */
   .customer-card {
     border: 1px solid #ddd;
